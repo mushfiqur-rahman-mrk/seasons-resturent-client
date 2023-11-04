@@ -1,17 +1,50 @@
 import { useState } from "react";
 import { AiOutlineEye } from "react-icons/ai";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
 import { PiEyeClosed } from "react-icons/pi";
+import useAuth from "../Hooks/useAuth";
+import Swal from "sweetalert2";
+ 
 
 const Login = () => {
+    const {emailLogin,google}=useAuth()
+    const [error, setError] = useState("");
     const [show,setShow]=useState(false)
+    const location = useLocation();
+    const navigate = useNavigate();
+  
 
     const handleLogIn=e=>{
-        e.preventDefault()
+      e.preventDefault()
+      const form = new FormData(e.currentTarget);
+    const email = form.get("email");
+    const password = form.get("password");
+    console.log(email);
+    emailLogin(email, password)
+      .then((result) => {
+        console.log(result.user);
+        console.log("successfully loged in");
+        Swal("Logged in successfully", "", "success");
+        // toast("Wow so easy!")
+        navigate(location?.state ? location.state : "/");
+        e.target.reset();
+      })
+      .catch((error) => {
+        console.log(error.message);
+        setError(error.message);
+      });
     }
     const handleGoogle=()=>{
-
+      google()
+      .then((result) => {
+        console.log(result.user);
+        Swal("Account Created successfully", "", "success");
+        navigate(location?.state ? location.state : "/");
+      })
+      .catch((error) => {
+        console.log(error.message);
+      });
     }
   return (
     <>
@@ -105,11 +138,11 @@ const Login = () => {
                       </Link>
                     </p>
                   </form>
-                  {/* {error && (
+                  {error && (
                     <p className="bg-red-500 py-1 rounded-lg px-3 text-white">
                       {error}
                     </p>
-                  )} */}
+                  )}
                 </div>
               </div>
             </div>

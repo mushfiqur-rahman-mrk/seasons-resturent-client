@@ -1,19 +1,58 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { AiOutlineEye } from "react-icons/ai";
 import { FcGoogle } from "react-icons/fc";
 import { PiEyeClosed } from "react-icons/pi";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import useAuth from "../Hooks/useAuth";
+import Swal from "sweetalert2";
+import { AuthContext } from "../Auth/AuthProvider";
 
  
 
 const Register = () => {
+    // const {createUser, google}=useAuth()
+    const{newUser, google}=useContext(AuthContext)
+    const [error, setError] = useState("");
     const [show,setShow]=useState(false)
+    const location = useLocation();
+    const navigate=useNavigate()
 
     const handleSignUp=e=>{
         e.preventDefault()
+        const form = new FormData(e.currentTarget);
+        const email = form.get("email");
+        const name = form.get("name");
+        const password = form.get("password");
+        newUser(email, password)
+      .then((result) => {
+        console.log(result.user);
+        setError('Account created successfully')
+        e.target.reset();
+        Swal.fire({
+          icon: 'success',
+          title: 'Account Created successfully',
+        })
+        navigate(location?.state ? location.state : "/");
+        
+      })
+      .catch((error) => {
+        console.log(error.message);
+        setError(error.message);
+      });
     }
     const handleGoogle=()=>{
-
+        google()
+      .then((result) => {
+        console.log(result.user);
+        Swal.fire({
+          icon: 'success',
+          title: 'Account Created successfully',
+        })
+        navigate(location?.state ? location.state : "/");
+      })
+      .catch((error) => {
+        console.log(error.message);
+      });
     }
 
     return (
@@ -70,7 +109,7 @@ const Register = () => {
                       Your photo url
                     </label>
                     <input
-                      type="url"
+                      type="text"
                       name="text"
                       id="photurl"
                       className="p-2 border rounded-xl w-full outline-none focus:border-red-500"
@@ -132,11 +171,11 @@ const Register = () => {
                     </Link>
                   </p>
                 </form>
-                {/* {error && (
+                {error && (
                   <p className="bg-red-500 py-1 rounded-lg px-3 text-white">
                     {error}
                   </p>
-                )} */}
+                )}
               </div>
             </div>
           </div>
