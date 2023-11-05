@@ -1,9 +1,15 @@
+import Downlode from "../Components/DownlodeApp/Downlode";
+import Banner from "../Components/Header/Banner";
+import PopularFood from "../Components/PopularFood/PopularFood";
+
  
 
 const Home = () => {
     return (
         <div>
-            <h1>Bismillah</h1>
+            {/* <Banner></Banner> */}
+            <PopularFood></PopularFood>
+            <Downlode></Downlode>
         </div>
     );
 };

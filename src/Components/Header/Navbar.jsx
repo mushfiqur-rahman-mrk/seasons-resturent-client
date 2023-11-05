@@ -45,13 +45,13 @@ const Navbar = () => {
                       <li>{user.email}</li>
                       <li><hr></hr></li>
                       <li>
-                        <NavLink to={'/blog'} className={({isActive})=> isActive ? 'underline text-red-500 hover:text-blue-600 cursor-pointer' : 'text-black hover:text-blue-600 cursor-pointer' }>Blog</NavLink>
+                        <NavLink to={'/my-item'} className={({isActive})=> isActive ? 'underline text-red-500 hover:text-blue-600 cursor-pointer' : 'text-black hover:text-blue-600 cursor-pointer' }>My Food item</NavLink>
                       </li>
                       <li>
-                        <NavLink to={'/blog'} className={({isActive})=> isActive ? 'underline text-red-500 hover:text-blue-600 cursor-pointer' : 'text-black hover:text-blue-600 cursor-pointer' }>Blog</NavLink>
+                        <NavLink to={'/add-item'} className={({isActive})=> isActive ? 'underline text-red-500 hover:text-blue-600 cursor-pointer' : 'text-black hover:text-blue-600 cursor-pointer' }>Add a food item</NavLink>
                       </li>
                       <li>
-                        <NavLink to={'/blog'} className={({isActive})=> isActive ? 'underline text-red-500 hover:text-blue-600 cursor-pointer' : 'text-black hover:text-blue-600 cursor-pointer' }>Blog</NavLink>
+                        <NavLink to={'/my-order'} className={({isActive})=> isActive ? 'underline text-red-500 hover:text-blue-600 cursor-pointer' : 'text-black hover:text-blue-600 cursor-pointer' }>Orders</NavLink>
                       </li>
                        
                           <button onClick={handleLogout} className="btn bg-red-300 text center hidden lg:block">log out</button> 

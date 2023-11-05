@@ -25,7 +25,10 @@ const Login = () => {
       .then((result) => {
         console.log(result.user);
         console.log("successfully loged in");
-        Swal("Logged in successfully", "", "success");
+        Swal.fire({
+          icon: 'success',
+          title: 'Log out successfully',
+        })
         // toast("Wow so easy!")
         navigate(location?.state ? location.state : "/");
         e.target.reset();
@@ -39,7 +42,10 @@ const Login = () => {
       google()
       .then((result) => {
         console.log(result.user);
-        Swal("Account Created successfully", "", "success");
+        Swal.fire({
+          icon: 'success',
+          title: 'Log out successfully',
+        })
         navigate(location?.state ? location.state : "/");
       })
       .catch((error) => {
