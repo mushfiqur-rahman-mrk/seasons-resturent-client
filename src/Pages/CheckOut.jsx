@@ -35,7 +35,7 @@ const CheckOut = () => {
         setOrder(order - 1);
       }
     };
-    const newOrder={fname,price,category,order,userEmail,userName,date,_id}
+    const newOrder={fname,price,fimage,category,order,userEmail,userName,date,_id}
     const handleOrder=()=>{
         console.log(newOrder);
         axios.post('http://localhost:5000/orders',newOrder)
