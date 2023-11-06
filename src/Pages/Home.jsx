@@ -1,6 +1,7 @@
 import Downlode from "../Components/DownlodeApp/Downlode";
 import Banner from "../Components/Header/Banner";
 import PopularFood from "../Components/PopularFood/PopularFood";
+ 
 
  
 
@@ -10,6 +11,7 @@ const Home = () => {
             <Banner></Banner>
             <PopularFood></PopularFood>
             <Downlode></Downlode>
+             
         </div>
     );
 };

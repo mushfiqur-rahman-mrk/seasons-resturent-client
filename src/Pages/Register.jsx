@@ -6,6 +6,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import useAuth from "../Hooks/useAuth";
 import Swal from "sweetalert2";
 import { AuthContext } from "../Auth/AuthProvider";
+import axios from "axios";
 
  
 
@@ -23,11 +24,19 @@ const Register = () => {
         const email = form.get("email");
         const name = form.get("name");
         const password = form.get("password");
+        const newUserDB={name,email}
         newUser(email, password)
       .then((result) => {
         console.log(result.user);
         setError('Account created successfully')
-        e.target.reset();
+        // e.target.reset();
+
+        axios.post('http://localhost:5000/user',newUserDB)
+        .then(res=>{
+          console.log(res.data)
+          alert('user added successfully')
+        })
+
         Swal.fire({
           icon: 'success',
           title: 'Account Created successfully',
@@ -44,6 +53,14 @@ const Register = () => {
         google()
       .then((result) => {
         console.log(result.user);
+        const name=result.user?.email;
+        const email=result.user?.displayName;
+        const newUserDB={name,email}
+        axios.post('http://localhost:5000/user',newUserDB)
+        .then(res=>{
+          console.log(res.data)
+          alert('user added successfully')
+        })
         Swal.fire({
           icon: 'success',
           title: 'Account Created successfully',

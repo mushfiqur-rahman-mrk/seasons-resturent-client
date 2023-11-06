@@ -1,13 +1,22 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Title from "../Ui/Title";
+import axios from "axios";
+import PopularCard from "./PopularCard";
+import Container from "../Ui/Container";
 
 const PopularFood = () => {
+
+  const [popularItems,setPopularItems]=useState([])
+
+  useEffect(()=>{
+    axios.get('http://localhost:5000/api/v1/all-foods?sortField=count&sortOrder=desc')
+    .then(res=>setPopularItems(res.data))
+  },[])
   return (
     <>
-
- 
-    <p className="font-bold text-4xl text-center">
+<Container>
+<p className="font-bold text-4xl text-center">
     Our
     <span className="text-green-500 mx-1 font-extrabold text-5xl relative inline-block stroke-current">
         popular
@@ -20,50 +29,19 @@ const PopularFood = () => {
 </p>
 
 
+ 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-      <div>
-        <div className="flex px-3 py-3">
-          <div className="max-w-sm rounded overflow-hidden shadow-lg">
-            <img
-              className="w-full"
-              src="https://tailwindcss.com/img/card-top.jpg"
-              alt="Sunset in the mountains"
-            />
-            <div className="px-6 py-4">
-              <div className="font-bold text-xl mb-2">Food item name</div>
-              <div className="flex justify-between">
-              <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2">
-                category
-              </span>
-              <p className="text-gray-700 text-base">
-                 $price
-              </p>
-              </div>
-            </div>
-             <Link to={'single-food'}><button className="btn text-center">Details</button></Link>
-          </div>
-        </div>
+      <div className="grid grid-cols-1 lg:grid-cols-3">
+        {
+          popularItems?.map(popularItem=><PopularCard key={popularItem._id} popularItem={popularItem}></PopularCard>)
+        }
       </div>
+      <div className="flex justify-center mt-5">
+        <Link to={'/all-food'}><button className="btn btn-accent">See More</button></Link>
+      </div>
+</Container>
+ 
+
     </>
   );
 };

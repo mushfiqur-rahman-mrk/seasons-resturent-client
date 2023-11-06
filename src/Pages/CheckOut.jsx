@@ -4,7 +4,7 @@ import Container from '../Components/Ui/Container';
 import { useLoaderData } from 'react-router-dom';
 import Title from '../Components/Ui/Title';
 import { AiOutlinePlus, AiOutlineMinus } from "react-icons/ai";
-import useDate from '../Hooks/useDate';
+ 
 
 const CheckOut = () => {
     const [order, setOrder] = useState(1);
@@ -65,7 +65,7 @@ const CheckOut = () => {
                                     </AiOutlinePlus>
                             </div>
                             {
-                                stock > 0 ? <button onClick={handleOrder} className='btn btn-accent mt-5'>Order Now</button>
+                                stock > 0 ? <button onClick={handleOrder} className='btn btn-accent mt-5'>Place Order</button>
                                 :
                                 <button className='btn btn-error mt-5'>Out of Stock</button>
                             }

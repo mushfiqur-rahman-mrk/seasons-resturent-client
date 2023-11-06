@@ -7,7 +7,7 @@ import Swal from "sweetalert2";
 
 const Navbar = () => {
     const {user,logOut}=useAuth()
-    console.log(user);
+    
     const handleLogout=()=>{
         logOut()
         .then(()=>{
@@ -19,6 +19,7 @@ const Navbar = () => {
         })
         .catch(error=>console.log(error))
       }
+      
   return (
     <div className="bg-gray-200">
       <div className="flex justify-between max-w-5xl px-3 mx-auto py-2 items-center ">
@@ -37,7 +38,12 @@ const Navbar = () => {
                 {
                     user ?  <div className="dropdown dropdown-end">
                     <label tabIndex={0} className="btn">
+                      {
+                        user?.photoURL ?  <img src={user?.photoURL} className="h-10 rounded-full object-cover w-20" alt="" />
+                        :
                         <img src={userimg} className="h-10 rounded-full object-cover w-20" alt="" />
+                      }
+                        
                     </label>
                     
                     <ul tabIndex={0} className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52 text-center">
