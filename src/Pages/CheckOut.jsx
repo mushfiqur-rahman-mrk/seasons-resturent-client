@@ -6,6 +6,7 @@ import Title from '../Components/Ui/Title';
 import { AiOutlinePlus, AiOutlineMinus } from "react-icons/ai";
 import moment from 'moment/moment';
 import GetUser from '../utils/GetUser';
+import axios from 'axios';
  
  
 
@@ -34,8 +35,15 @@ const CheckOut = () => {
         setOrder(order - 1);
       }
     };
+    const newOrder={fname,price,category,order,userEmail,userName,date,_id}
     const handleOrder=()=>{
-        console.log(fname,price,category,order,'uname, uemail',date,);
+        console.log(newOrder);
+        axios.post('http://localhost:5000/orders',newOrder)
+        .then(res=>{
+          console.log(res.data);
+          alert('order plased successfully')
+        })
+
     }
     return (
         <>

@@ -57,11 +57,14 @@ const handleSearch=(e)=>{
       <Title>All foods</Title>
       <Container>
       <div className="grid grid-cols-1 lg:grid-cols-3 mt-10 gap-5 justify-center items-center">
-        {
+        {/* {
           allfoods?.length > 0 ? allfoods?.map(foodItem=><AllFoodsCard key={foodItem._id} foodItem={foodItem}></AllFoodsCard>)
           :
           <p>No product match for ${search}</p>
           
+        } */}
+        {
+          allfoods?.map(foodItem=><AllFoodsCard key={foodItem._id} foodItem={foodItem}></AllFoodsCard>)
         }
       </div>
       </Container>
