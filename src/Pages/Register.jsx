@@ -53,8 +53,8 @@ const Register = () => {
         google()
       .then((result) => {
         console.log(result.user);
-        const name=result.user?.email;
-        const email=result.user?.displayName;
+        const email=result.user?.email;
+        const name=result.user?.displayName;
         const newUserDB={name,email}
         axios.post('http://localhost:5000/user',newUserDB)
         .then(res=>{
@@ -71,7 +71,7 @@ const Register = () => {
         console.log(error.message);
       });
     }
-
+ 
     return (
         <>
             <h1 className="text-2xl text-center font-bold my-10">

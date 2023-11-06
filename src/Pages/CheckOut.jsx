@@ -4,13 +4,21 @@ import Container from '../Components/Ui/Container';
 import { useLoaderData } from 'react-router-dom';
 import Title from '../Components/Ui/Title';
 import { AiOutlinePlus, AiOutlineMinus } from "react-icons/ai";
+import moment from 'moment/moment';
+import GetUser from '../utils/GetUser';
+ 
  
 
 const CheckOut = () => {
     const [order, setOrder] = useState(1);
     const foodItem=useLoaderData()
-   
-     
+ 
+    const dbUser=GetUser()
+    const userName=dbUser.name;
+    const userEmail=dbUser.email;
+ 
+    const date=moment().format('ll');
+ 
     const {_id,fname,fimage,category,price,origin,stock,addBy,description,count}=foodItem || {}
         
  
@@ -27,7 +35,7 @@ const CheckOut = () => {
       }
     };
     const handleOrder=()=>{
-        console.log(fname,price,category,order,'uname, uemail');
+        console.log(fname,price,category,order,'uname, uemail',date,);
     }
     return (
         <>
@@ -42,12 +50,11 @@ const CheckOut = () => {
                             
                             <h1 className='text-2xl font-semibold'>{fname}</h1>
                             <p>Price: ${price}</p>
-                            <p>date</p>
-                            <p>name</p>
-                            <p></p>
+                            <p>{date}</p>
+                            <p>{userName}</p>
+                            <p>{userEmail}</p>
                             <p>stock {stock}</p>
                             <p>count {count}</p>
-                            <p>email</p>
                             <p>Koyta lagbe</p>
                             <div className="flex gap-3 items-center">
                                     <AiOutlineMinus
