@@ -1,0 +1,57 @@
+[
+  {
+    "fname": "Hyderabadi Biryani",
+    "fimage": "https://static.wixstatic.com/media/91e241_475faa4fa56341f3878699dde5ab4904~mv2.jpg/v1/fill/w_640,h_426,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/91e241_475faa4fa56341f3878699dde5ab4904~mv2.jpg",
+    "category": "Biryani",
+    "price": 12.99,
+    "origin": "Hyderabad, India",
+    "stock": 50,
+    "addBy": "Chef Ahmed",
+    "description": "Indulge in the irresistible flavors of our Hyderabadi Biryani. This aromatic delicacy hails from the Nizam's kitchen and is known for its rich taste and fragrant spices. Made with the finest Basmati rice and tender pieces of chicken, each bite is a symphony of flavors. The blend of saffron, mint, and traditional spices creates a medley of tastes that will transport your taste buds to the heart of Hyderabad. Served with raita and love, our Hyderabadi Biryani is a culinary masterpiece that you won't want to miss. Experience the heritage of India's royal kitchens in every plate, exclusively at our restaurant. Your culinary journey begins here.",
+    "count": 22
+  },
+  {
+    "fname": "Veg Biryani",
+    "fimage": "https://www.whiskaffair.com/wp-content/uploads/2020/08/Veg-Biryani-2-3.jpg",
+    "category": "Biryani",
+    "price": 10.99,
+    "origin": "India",
+    "stock": 40,
+    "addBy": "Chef Priya",
+    "description": "Our Veg Biryani is a vegetarian delight that will tantalize your taste buds. Made with love and care, this biryani features fragrant Basmati rice cooked to perfection and a colorful assortment of fresh vegetables. It's a wholesome and flavorful dish that caters to vegetarians looking for an exquisite culinary experience. The blend of spices and herbs infuses the biryani with an irresistible aroma and a symphony of flavors that make each bite a delightful experience. Whether you're a vegetarian or simply craving a meatless masterpiece, our Veg Biryani will satisfy your cravings and leave you craving for more. Enjoy the rich tradition of Indian cuisine on your plate today.",
+    "count": 10
+  },
+  {
+    "fname": "Dum Biryani",
+    "fimage": "https://www.licious.in/blog/wp-content/uploads/2020/12/Hyderabadi-chicken-Biryani.jpg",
+    "category": "Biryani",
+    "price": 14.99,
+    "origin": "Lucknow, India",
+    "stock": 60,
+    "addBy": "a@b.com",
+    "description": "Savor the royal flavors of our Dum Biryani, a culinary masterpiece from the royal kitchens of Lucknow. Crafted with meticulous care, this biryani showcases the perfect union of tender mutton or lamb and aromatic spices. Slow-cooked to perfection, our Dum Biryani is a symphony of flavors that will transport you to the regal era of Awadhi cuisine. The layers of fragrant rice and succulent meat are brought to life with saffron, rose water, and secret spices that make every bite a regal experience. Dive into a culinary journey that embodies the opulence of Indian heritage. Discover the magic of Dum Biryani, where each plate is a celebration of flavor, exclusively at our restaurant.",
+    "count": 5
+  }
+]
+
+
+
+
+fname
+"Hyderabadi Biryani"
+fimage
+"https://static.wixstatic.com/media/91e241_475faa4fa56341f3878699dde5ab…"
+category
+"Biriyani"
+price
+12
+origin
+"Hyderabad, India"
+stock
+15
+addBy
+
+description
+"Indulge in the irresistible flavors of our Hyderabadi Biryani. This ar…"
+count
+0

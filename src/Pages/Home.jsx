@@ -7,7 +7,7 @@ import PopularFood from "../Components/PopularFood/PopularFood";
 const Home = () => {
     return (
         <div>
-            {/* <Banner></Banner> */}
+            <Banner></Banner>
             <PopularFood></PopularFood>
             <Downlode></Downlode>
         </div>

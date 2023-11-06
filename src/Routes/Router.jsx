@@ -13,6 +13,8 @@ import MyItem from "../Pages/MyItem";
 import { element } from "prop-types";
 import SingleFood from "../Pages/SingleFood";
 import CheckOut from "../Pages/CheckOut";
+ 
+
 
 const router = createBrowserRouter([
   {
@@ -49,12 +51,14 @@ const router = createBrowserRouter([
           element:<MyItem></MyItem>
         },
         {
-          path:'single-food',
-          element:<SingleFood></SingleFood>
+          path:'single-food/:id',
+          element:<SingleFood></SingleFood>,
+          loader: ({params})=>fetch(`http://localhost:5000/api/v1/all-foods/${params.id}`)
         },
         {
-          path:'checkOut',
-          element:<CheckOut></CheckOut>
+          path:'checkOut/:id',
+          element:<CheckOut></CheckOut>,
+          loader: ({params})=>fetch(`http://localhost:5000/api/v1/all-foods/${params.id}`)
         }
     ]
   },

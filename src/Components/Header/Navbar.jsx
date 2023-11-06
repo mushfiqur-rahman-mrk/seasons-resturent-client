@@ -33,7 +33,7 @@ const Navbar = () => {
                     <NavLink to={'/blog'} className={({isActive})=> isActive ? 'underline text-red-500 hover:text-blue-600 cursor-pointer' : 'text-black hover:text-blue-600 cursor-pointer' }>Blog</NavLink>
                 </div>  
             </div>
-            <div className="flex items-center gap-2">
+            <div className="flex items-center gap-2 z-50">
                 {
                     user ?  <div className="dropdown dropdown-end">
                     <label tabIndex={0} className="btn">
@@ -64,7 +64,7 @@ const Navbar = () => {
                 
 
 
-                <div className="drawer drawer-end lg:hidden">
+                <div className="drawer drawer-end lg:hidden z-50">
                     <input id="my-drawer-4" type="checkbox" className="drawer-toggle" />
                     <div className="drawer-content">
                         {/* Page content here----drawer-button */}

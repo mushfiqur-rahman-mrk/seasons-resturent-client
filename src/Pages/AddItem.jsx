@@ -1,8 +1,50 @@
 import React from "react";
+import useAuth from "../Hooks/useAuth";
+import axios from "axios";
+
+// "fname": "Chinese Dynasty",
+//         "fimage": "chinese.jpg",
+//         "category": "Chinese",
+//         "price": 2,
+//         "origin": "China",
+//         "ingredients": ["Soy Sauce", "Rice", "Dumplings", "Spring Onions"],
+//         "count": 42,
+//         "quantity": 65,
+//         "addBy": "email@cc.com"
 
 const AddItem = () => {
+  const {user}=useAuth()
     const handleSubmit=e=>{
         e.preventDefault()
+        const fname=e.target.fname.value;
+        const priceString=e.target.price.value;
+        const price=parseInt(priceString)
+        
+        const origin=e.target.origin.value;
+        const fimage=e.target.image.value;
+        const stockString=e.target.stock.value;
+        const stock=Number(stockString)
+        const category=e.target.category.value;
+        const description=e.target.description.value;
+        const addByEmail=user.email;
+        const addByName=user.displayName;
+        const count=0;
+        const newFoodItem={fname,fimage,category,price,origin,stock,addByEmail,description,count,addByName}
+        console.log(newFoodItem);
+        // axios.post('http://localhost:5000/api/v1/all-foods',newFoodItem)
+        // .then(res=>{
+        //   console.log(res.data)
+        //   alert('product added successfully')
+        // })
+    //     fetch('http://localhost:5000/api/v1/all-foods',{
+    //   method: 'POST',
+    //   headers:{
+    //     'content-type':'application/json'
+    //   },
+    //   body: JSON.stringify(newFoodItem)
+    // })
+        
+
     }
   return (
     <>
@@ -20,30 +62,31 @@ const AddItem = () => {
             <div className="bg-gray-200 mt-5 rounded-xl shadow-lg">
               <div className="py-8 lg:py-16 px-4 mx-auto max-w-screen-md">
                 <form onSubmit={handleSubmit} className="space-y-8">
+
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-10">
                     <div>
-                      <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
-                        Product Name
+                      <label className="block mb-2 text-sm font-medium  ">
+                        Food Item Name
                       </label>
                       <input
                         type="text"
                         id="subject"
-                        className="block p-3 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 shadow-sm focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light"
-                        placeholder="Product Name"
-                        name="productName"
+                        className="p-2 border rounded-xl w-full outline-none focus:border-red-500"
+                        placeholder="Food item name etc(biriyani,kabab)"
+                        name="fname"
                         required
                       />
                     </div>
 
                     <div>
-                      <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
-                        Product Price
+                      <label className="block mb-2 text-sm font-medium ">
+                      Food Item Price
                       </label>
                       <input
-                        type="text"
+                        type="number"
                         id="email"
-                        className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light"
-                        placeholder="Brand Name"
+                        className="p-2 border rounded-xl w-full outline-none focus:border-red-500"
+                        placeholder="$ price"
                         name="price"
                         required
                       />
@@ -52,27 +95,27 @@ const AddItem = () => {
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-10">
                     <div>
-                      <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
-                        Product type
+                      <label className="block mb-2 text-sm font-medium  ">
+                        Food Origin
                       </label>
                       <input
                         type="text"
                         id="subject"
-                        className="block p-3 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 shadow-sm focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light"
-                        placeholder="Phone/Tv/Monitor"
-                        name="type"
+                        className="p-2 border rounded-xl w-full outline-none focus:border-red-500"
+                        placeholder="Origin of this food item"
+                        name="origin"
                         required
                       />
                     </div>
 
                     <div>
-                      <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
+                      <label className="block mb-2 text-sm font-medium  ">
                         Product image URL
                       </label>
                       <input
                         type="text"
                         id="email"
-                        className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light"
+                        className="p-2 border rounded-xl w-full outline-none focus:border-red-500"
                         placeholder="Image url"
                         name="image"
                         required
@@ -80,61 +123,80 @@ const AddItem = () => {
                     </div>
                   </div>
 
-                  <div className="grid grid-cols-1 gap-10">
+
+
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-10">
                     <div>
-                      <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
-                        Product Rating
+                      <label className="block mb-2 text-sm font-medium  ">
+                        Available Stock
                       </label>
                       <input
-                        type="text"
+                        type="number"
                         id="subject"
-                        className="block p-3 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 shadow-sm focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light"
-                        placeholder="product rating"
-                        name="rating"
+                        className="p-2 border rounded-xl w-full outline-none focus:border-red-500"
+                        placeholder="available stock"
+                        name="stock"
                         required
                       />
                     </div>
+
+                    <div>
+                      <label className="block mb-2 text-sm font-medium  ">
+                        Added by
+                      </label>
+                      <p className="">Name: {user?.displayName ? user?.displayName : 'No name Found'}</p>
+                      <p>E-mail: {user?.email}</p>
+                      {/* <input
+                        type="text"
+                        id="email"
+                        className="p-2 border rounded-xl w-full outline-none focus:border-red-500"
+                        placeholder="user name"
+                        name="image"
+                        required
+                      /> */}
+                    </div>
                   </div>
+
+                   
 
                   <div className="grid grid-cols-1 gap-10">
                     <div>
-                      <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
-                        Product Brand
+                      <label className="block mb-2 text-sm font-medium  ">
+                        Food Category
                       </label>
                       <select
                         id="countries"
-                        name="brand"
+                        name="category"
                         required
-                        className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                        className="p-2 border rounded-xl w-full outline-none focus:border-red-500"
                       >
                         <option selected value="">
-                          Choose Your Product Brand
+                          Choose Your Food Category
                         </option>
-                        <option value="Apple">Apple</option>
-                        <option value="Samsung">Samsung</option>
-                        <option value="Xiaomi">Xiaomi</option>
-                        <option value="Gigabite">Gigabite</option>
-                        <option value="Asus">Asus</option>
-                        <option value="Sony">Sony</option>
+                        <option value="Drinks">Drinks</option>
+                        <option value="Dessert">Dessert</option>
+                        <option value="Biriyani">Biriyani</option>
+                        <option value="Fast-food">Fast food</option>
+                        <option value="Tandoori-Grill">Tandoori & Grill</option>
                       </select>
                     </div>
                   </div>
 
                   <div className="sm:col-span-2">
-                    <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400">
-                      Product Detail
+                    <label className="block mb-2 text-sm font-medium">
+                        Food Item Detail
                     </label>
                     <textarea
                       id="message"
                       rows="6"
-                      name="detail"
-                      className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg shadow-sm border border-gray-300 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                      name="description"
+                      className="p-2 border rounded-xl w-full outline-none focus:border-red-500"
                       placeholder="Enter your product detail . Word limit 200 word "
                     ></textarea>
                   </div>
 
                   <button className="px-5 w-full text-white font-semibold bg-gradient-to-r from-cyan-500 to-blue-500 hover:ease-in py-3 transition duration-150 hover:text-black rounded-xl shadow-lg mx-auto md:w-1/2 ">
-                    Submit
+                    Add Product
                   </button>
                 </form>
               </div>

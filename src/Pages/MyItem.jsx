@@ -1,5 +1,6 @@
 import React from 'react';
 import Container from '../Components/Ui/Container';
+import { Link } from 'react-router-dom';
 
 const MyItem = () => {
     return (
@@ -23,7 +24,10 @@ const MyItem = () => {
             <h1>date</h1>
             <h1>price</h1>
             <div>
+                
+                <Link to={'/update-item'}>
                 <button className='btn btn-accent'>Edit</button>
+                </Link>
                 <button className='btn btn-error'>Delete</button>
             </div>
         </div>

@@ -1,263 +1,81 @@
-import React from "react";
+import React, { useState } from 'react';
+import Container from '../Components/Ui/Container';
+// import Counter from '../Components/Ui/Counter';
+import { useLoaderData } from 'react-router-dom';
+import Title from '../Components/Ui/Title';
+import { AiOutlinePlus, AiOutlineMinus } from "react-icons/ai";
+import useDate from '../Hooks/useDate';
 
 const CheckOut = () => {
-  return (
-    <>
-      <div className="min-h-screen p-6 bg-gray-100 flex items-center justify-center">
-        <div className="container max-w-screen-lg mx-auto">
-          <div>
-            <div className="bg-white rounded shadow-lg p-4 px-4 md:p-8 mb-6">
-              <div className="grid gap-4 gap-y-2 text-sm grid-cols-1 lg:grid-cols-3">
-                <div className="text-gray-600">
-                  <p className="font-medium text-lg">Personal Details</p>
-                  <p>Please fill out all the fields.</p>
-                </div>
-
-                <div className="lg:col-span-2">
-                  {/* <form>
-                  <div className="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-5">
-                    <div className="md:col-span-5">
-                      <label for="full_name">Full Name</label>
-                      <input
-                        type="text"
-                        name="full_name"
-                        id="full_name"
-                        className="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
-                        value=""
-                      />
+    const [order, setOrder] = useState(1);
+    const foodItem=useLoaderData()
+   
+     
+    const {_id,fname,fimage,category,price,origin,stock,addBy,description,count}=foodItem || {}
+        
+ 
+    const handleIncrement = () => {
+        console.log('incre hit');
+      if (order < stock) {
+        setOrder(order + 1);
+      }
+    };
+    const handledecrement = () => {
+        console.log('dec hit');
+      if (order > 1) {
+        setOrder(order - 1);
+      }
+    };
+    const handleOrder=()=>{
+        console.log(fname,price,category,order,'uname, uemail');
+    }
+    return (
+        <>
+        <Title>Check Out</Title>
+             <Container>
+                    <div className='grid grid-cols-1 lg:grid-cols-3 my-10 border mx-10'>
+                        <div className='bg-red-300'>
+                        <img src={fimage} className='w-full h-full' alt="" />
+                        </div>
+                        <div className='col-span-2 flex justify-center items-center mt-5'>
+                            <div>
+                            
+                            <h1 className='text-2xl font-semibold'>{fname}</h1>
+                            <p>Price: ${price}</p>
+                            <p>date</p>
+                            <p>name</p>
+                            <p></p>
+                            <p>stock {stock}</p>
+                            <p>count {count}</p>
+                            <p>email</p>
+                            <p>Koyta lagbe</p>
+                            <div className="flex gap-3 items-center">
+                                    <AiOutlineMinus
+                                    onClick={handledecrement}
+                                    className="text-xl bg-slate-300 rounded-md"
+                                    >
+                                    
+                                    </AiOutlineMinus>
+                                    <p className="text-2xl">{order}</p>
+                                    <AiOutlinePlus
+                                    onClick={handleIncrement}
+                                    className="text-xl bg-slate-300 rounded-md"
+                                    >
+                                    
+                                    </AiOutlinePlus>
+                            </div>
+                            {
+                                stock > 0 ? <button onClick={handleOrder} className='btn btn-accent mt-5'>Order Now</button>
+                                :
+                                <button className='btn btn-error mt-5'>Out of Stock</button>
+                            }
+                            
+                            </div>
+                        </div>
                     </div>
-
-                    <div className="md:col-span-5">
-                      <label for="email">Email Address</label>
-                      <input
-                        type="text"
-                        name="email"
-                        id="email"
-                        className="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
-                        value=""
-                        placeholder="email@domain.com"
-                      />
-                    </div>
-
-                    <div className="md:col-span-3">
-                      <label for="address">Address / Street</label>
-                      <input
-                        type="text"
-                        name="address"
-                        id="address"
-                        className="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
-                        value=""
-                        placeholder=""
-                      />
-                    </div>
-
-                    <div className="md:col-span-2">
-                      <label for="city">City</label>
-                      <input
-                        type="text"
-                        name="city"
-                        id="city"
-                        className="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
-                        value=""
-                        placeholder=""
-                      />
-                    </div>
-
-                    <div className="md:col-span-2">
-                      <label for="country">Country / region</label>
-                      <div className="h-10 bg-gray-50 flex border border-gray-200 rounded items-center mt-1">
-                        <input
-                          name="country"
-                          id="country"
-                          placeholder="Country"
-                          className="px-4 appearance-none outline-none text-gray-800 w-full bg-transparent"
-                          value=""
-                        />
-                        <button
-                          tabindex="-1"
-                          className="cursor-pointer outline-none focus:outline-none transition-all text-gray-300 hover:text-red-600"
-                        >
-                          <svg
-                            className="w-4 h-4 mx-2 fill-current"
-                            xmlns="http://www.w3.org/2000/svg"
-                            viewBox="0 0 24 24"
-                            stroke="currentColor"
-                            stroke-width="2"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                          >
-                            <line x1="18" y1="6" x2="6" y2="18"></line>
-                            <line x1="6" y1="6" x2="18" y2="18"></line>
-                          </svg>
-                        </button>
-                        <button
-                          tabindex="-1"
-                          for="show_more"
-                          className="cursor-pointer outline-none focus:outline-none border-l border-gray-200 transition-all text-gray-300 hover:text-blue-600"
-                        >
-                          <svg
-                            className="w-4 h-4 mx-2 fill-current"
-                            xmlns="http://www.w3.org/2000/svg"
-                            viewBox="0 0 24 24"
-                            stroke="currentColor"
-                            stroke-width="2"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                          >
-                            <polyline points="18 15 12 9 6 15"></polyline>
-                          </svg>
-                        </button>
-                      </div>
-                    </div>
-
-                    <div className="md:col-span-2">
-                      <label for="state">State / province</label>
-                      <div className="h-10 bg-gray-50 flex border border-gray-200 rounded items-center mt-1">
-                        <input
-                          name="state"
-                          id="state"
-                          placeholder="State"
-                          className="px-4 appearance-none outline-none text-gray-800 w-full bg-transparent"
-                          value=""
-                        />
-                        <button
-                          tabindex="-1"
-                          className="cursor-pointer outline-none focus:outline-none transition-all text-gray-300 hover:text-red-600"
-                        >
-                          <svg
-                            className="w-4 h-4 mx-2 fill-current"
-                            xmlns="http://www.w3.org/2000/svg"
-                            viewBox="0 0 24 24"
-                            stroke="currentColor"
-                            stroke-width="2"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                          >
-                            <line x1="18" y1="6" x2="6" y2="18"></line>
-                            <line x1="6" y1="6" x2="18" y2="18"></line>
-                          </svg>
-                        </button>
-                        <button
-                          tabindex="-1"
-                          for="show_more"
-                          className="cursor-pointer outline-none focus:outline-none border-l border-gray-200 transition-all text-gray-300 hover:text-blue-600"
-                        >
-                          <svg
-                            className="w-4 h-4 mx-2 fill-current"
-                            xmlns="http://www.w3.org/2000/svg"
-                            viewBox="0 0 24 24"
-                            stroke="currentColor"
-                            stroke-width="2"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                          >
-                            <polyline points="18 15 12 9 6 15"></polyline>
-                          </svg>
-                        </button>
-                      </div>
-                    </div>
-
-                    <div className="md:col-span-1">
-                      <label for="zipcode">Zipcode</label>
-                      <input
-                        type="text"
-                        name="zipcode"
-                        id="zipcode"
-                        className="transition-all flex items-center h-10 border mt-1 rounded px-4 w-full bg-gray-50"
-                        placeholder=""
-                        value=""
-                      />
-                    </div>
-
-                    <div className="md:col-span-5">
-                      <div className="inline-flex items-center">
-                        <input
-                          type="checkbox"
-                          name="billing_same"
-                          id="billing_same"
-                          className="form-checkbox"
-                        />
-                        <label for="billing_same" className="ml-2">
-                          My billing address is different than above.
-                        </label>
-                      </div>
-                    </div>
-
-                    <div className="md:col-span-2">
-                      <label for="soda">How many soda pops?</label>
-                      <div className="h-10 w-28 bg-gray-50 flex border border-gray-200 rounded items-center mt-1">
-                        <button
-                          tabindex="-1"
-                          for="show_more"
-                          className="cursor-pointer outline-none focus:outline-none border-r border-gray-200 transition-all text-gray-500 hover:text-blue-600"
-                        >
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            className="h-4 w-4 mx-2"
-                            viewBox="0 0 20 20"
-                            fill="currentColor"
-                          >
-                            <path
-                              fill-rule="evenodd"
-                              d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                              clip-rule="evenodd"
-                            />
-                          </svg>
-                        </button>
-                        <input
-                          name="soda"
-                          id="soda"
-                          placeholder="0"
-                          className="px-2 text-center appearance-none outline-none text-gray-800 w-full bg-transparent"
-                          value="0"
-                        />
-                        <button
-                          tabindex="-1"
-                          for="show_more"
-                          className="cursor-pointer outline-none focus:outline-none border-l border-gray-200 transition-all text-gray-500 hover:text-blue-600"
-                        >
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            className="h-4 w-4 mx-2 fill-current"
-                            viewBox="0 0 20 20"
-                            fill="currentColor"
-                          >
-                            <path
-                              fill-rule="evenodd"
-                              d="M14.707 12.707a1 1 0 01-1.414 0L10 9.414l-3.293 3.293a1 1 0 01-1.414-1.414l4-4a1 1 0 011.414 0l4 4a1 1 0 010 1.414z"
-                              clip-rule="evenodd"
-                            />
-                          </svg>
-                        </button>
-                      </div>
-                    </div>
-
-                    <div className="md:col-span-5 text-right">
-                      <div className="inline-flex items-end">
-                        <button type="submit" className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-                          Purchase
-                        </button>
-                      </div>
-                    </div>
-                  </div>
-                  </form> */}
-                  <h1 className="text-2xl font-semibold">Check Out</h1>
-                  <hr />
-                  <p>Food Name</p>
-                  <p>food price</p>
-                  <p>date</p>
-                  <p>quantitys</p>
-                  <p>Your Name: habibi</p>
-                  <p>Your Email: habibi</p>
-                  <button type="submit" className="btn">Buy Now</button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </>
-  );
+      </Container>  
+        </>
+    );
 };
 
 export default CheckOut;

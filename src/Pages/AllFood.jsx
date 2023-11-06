@@ -1,10 +1,30 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
+import Title from "../Components/Ui/Title";
+import Counter from "../Components/Ui/Counter";
+import axios from "axios";
+import AllFoodsCard from "./AllFoodsCard";
+import Container from "../Components/Ui/Container";
 
 const AllFood = () => {
+  const [allfoods,setAllfoods]=useState([])
+
+  useEffect(()=>{
+    // fetch('http://localhost:5000/api/v1/all-foods',{
+    //     credentials: "include",
+    //   })
+    // .then(res=>res.json())
+    // .then(data=>setAllfoods(data))
+    axios.get('http://localhost:5000/api/v1/all-foods')
+    .then(res=>{
+      setAllfoods(res.data)
+    })
+},[])
+
+console.log(allfoods);
   return (
     <>
-       <div className="relative bg-red-600">
+      {/* <div className="relative bg-red-600">
     <div className="absolute inset-x-0 bottom-0">
         <svg viewBox="0 0 224 12" fill="currentColor" className="w-full -mb-1 text-white" preserveAspectRatio="none">
             <path
@@ -31,47 +51,24 @@ const AllFood = () => {
             </form>
         </div>
     </div>
-</div>
-
-
-<h1 className="text-5xl font-semibold text-center my-10">Our Popular Food Items</h1>
-<p className="font-bold text-3xl">
-    this is fancy
-    <span className="text-green-500 mx-1 font-extrabold text-4xl relative inline-block stroke-current">
-        underline
-        <svg className="absolute -bottom-0.5 w-full max-h-1.5" viewBox="0 0 55 5" xmlns="http://www.w3.org/2000/svg"
-            preserveAspectRatio="none">
-            <path d="M0.652466 4.00002C15.8925 2.66668 48.0351 0.400018 54.6853 2.00002" stroke-width="2"></path>
-        </svg>
-    </span>
-    text
-</p>
-
+</div> */}
 
       <div>
-        <div className="flex px-3 py-3">
-          <div className="max-w-sm rounded overflow-hidden shadow-lg">
-            <img
-              className="w-full"
-              src="https://tailwindcss.com/img/card-top.jpg"
-              alt="Sunset in the mountains"
-            />
-            <div className="px-6 py-4">
-              <div className="font-bold text-xl mb-2">Food item name</div>
-              <div className="flex justify-between">
-              <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2">
-                category
-              </span>
-              <p className="text-gray-700 text-base">
-                 $price
-              </p>
-              </div>
-              <p>Quantity</p>
-            </div>
-             <button className="btn text-center">Details</button>
-          </div>
+        <div className="bg-[url('')]">
+          <h1>Lorem ipsum dolor sit amet.</h1>
         </div>
       </div>
+      <Counter></Counter>
+
+      <Title>All foods</Title>
+      <Container>
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-5 justify-center items-center">
+        {
+          allfoods?.map(foodItem=><AllFoodsCard key={foodItem._id} foodItem={foodItem}></AllFoodsCard>)
+        }
+      </div>
+      </Container>
+      
     </>
   );
 };
