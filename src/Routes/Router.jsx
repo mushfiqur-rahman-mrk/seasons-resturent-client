@@ -28,7 +28,8 @@ const router = createBrowserRouter([
         },
         {
             path:'all-food',
-            element:<AllFood></AllFood>
+            element:<AllFood></AllFood>,
+            loader:()=> fetch('http://localhost:5000/api/v1/all-foods')
         },
         {
             path:'blog',
@@ -43,8 +44,9 @@ const router = createBrowserRouter([
           element:<AddItem></AddItem>
         },
         {
-          path:'update-item',
-          element:<UpdateItem></UpdateItem>
+          path:'update-item/:id',
+          element:<UpdateItem></UpdateItem>,
+          loader: ({params})=>fetch(`http://localhost:5000/api/v1/all-foods/${params.id}`)
         },
         {
           path:'my-item',

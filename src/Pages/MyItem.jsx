@@ -1,37 +1,33 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Container from '../Components/Ui/Container';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
+import GetUser from '../utils/GetUser';
+import MyItemCard from './MyItemCard';
+import useAuth from '../Hooks/useAuth';
 
 const MyItem = () => {
+  const [myItems,setMyItems]=useState([])
+  // const user = GetUser()
+  // const email=user.email;
+    const {user}=useAuth()
+    const email=user.email
+    useEffect(()=>{
+      axios.get(`http://localhost:5000/api/v1/all-foods/user/${email}`)
+    .then(res=>{
+      console.log(res.data);
+      setMyItems(res.data)
+    })
+    },[])
     return (
         <>
-            
  
- 
-
       <Container>
-      <div className='grid grid-cols-3 my-10 gap-5 border shadow-xl rounded-xl'>
         <div>
-        <img
-            src='/src/assets/banner bg.jpg'
-            alt="Black Leather Bag"
-            className="h-60 object-center object-cover w-full rounded-xl"
-          />
+          {
+            myItems?.map(myItem=><MyItemCard key={myItem._id} myItem={myItem}></MyItemCard>)
+          }
         </div>
-        <div className='col-span-2'>
-            <h1>Food name</h1>
-            <h1>Food category</h1>
-            <h1>date</h1>
-            <h1>price</h1>
-            <div>
-                
-                <Link to={'/update-item'}>
-                <button className='btn btn-accent'>Edit</button>
-                </Link>
-                <button className='btn btn-error'>Delete</button>
-            </div>
-        </div>
-      </div>
       </Container>
    
  

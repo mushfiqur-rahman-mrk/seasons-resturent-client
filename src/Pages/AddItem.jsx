@@ -26,10 +26,9 @@ const AddItem = () => {
         const stock=Number(stockString)
         const category=e.target.category.value;
         const description=e.target.description.value;
-        const addByEmail=user.email;
-        const addByName=user.displayName;
+        const addby=user.email;
         const count=0;
-        const newFoodItem={fname,fimage,category,price,origin,stock,addByEmail,description,count,addByName}
+        const newFoodItem={fname,fimage,category,price,origin,stock,addby,description,count}
         console.log(newFoodItem);
         // axios.post('http://localhost:5000/api/v1/all-foods',newFoodItem)
         // .then(res=>{

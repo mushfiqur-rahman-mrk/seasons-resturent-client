@@ -5,10 +5,13 @@ import useOrders from "../Hooks/useOrders";
 import MyOrderCard from "./MyOrderCard";
 import axios from "axios";
 import GetUser from "../utils/GetUser";
+import useAuth from "../Hooks/useAuth";
 
 const MyOrder = () => {
-  const user = GetUser()
-  const email=user.email;
+  // const user = GetUser()
+  // const email=user.email;
+  const {user}=useAuth()
+  const email=user.email
   const [data,setData]=useState([])
   // const { data, isLoading, refetch } = useOrders();
   // console.log(data);

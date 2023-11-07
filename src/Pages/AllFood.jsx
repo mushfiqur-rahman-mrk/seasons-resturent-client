@@ -5,11 +5,13 @@ import Counter from "../Components/Ui/Counter";
 import axios, { all } from "axios";
 import AllFoodsCard from "./AllFoodsCard";
 import Container from "../Components/Ui/Container";
-import Pagination from "../Components/Ui/Pagination";
+import { useLoaderData } from "react-router-dom";
+ 
 
 const AllFood = () => {
   const [allfoods,setAllfoods]=useState([])
-  const [search,setSearch]=useState()
+  const [search,setSearch]=useState([])
+  // const allfoods=useLoaderData()
 
 
   useEffect(()=>{
@@ -57,18 +59,13 @@ const handleSearch=(e)=>{
       <Title>All foods</Title>
       <Container>
       <div className="grid grid-cols-1 lg:grid-cols-3 mt-10 gap-5 justify-center items-center">
-        {/* {
-          allfoods?.length > 0 ? allfoods?.map(foodItem=><AllFoodsCard key={foodItem._id} foodItem={foodItem}></AllFoodsCard>)
-          :
-          <p>No product match for ${search}</p>
-          
-        } */}
+ 
         {
           allfoods?.map(foodItem=><AllFoodsCard key={foodItem._id} foodItem={foodItem}></AllFoodsCard>)
         }
       </div>
       </Container>
-      <Pagination></Pagination>
+   
       
     </>
   );

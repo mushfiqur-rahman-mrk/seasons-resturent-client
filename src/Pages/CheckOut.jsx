@@ -22,7 +22,9 @@ const CheckOut = () => {
  
     const {_id,fname,fimage,category,price,origin,stock,addBy,description,count}=foodItem || {}
         
- 
+    // if(email===addby){
+    //   return <p>nijer mal nije kinar niyom nai</p>
+    // }
     const handleIncrement = () => {
         console.log('incre hit');
       if (order < stock) {
@@ -38,10 +40,19 @@ const CheckOut = () => {
     const newOrder={fname,price,fimage,category,order,userEmail,userName,date,_id}
     const handleOrder=()=>{
         console.log(newOrder);
+        const newstock=stock-order;
+        const newcount=count + 1;
+        const updatefood={newstock,newcount}
+        console.log(updatefood);
         axios.post('http://localhost:5000/orders',newOrder)
         .then(res=>{
           console.log(res.data);
           alert('order plased successfully')
+        })
+        axios.patch(`http://localhost:5000/api/v1/all-foods/${_id}`,updatefood)
+        .then(res=>{
+          console.log(res.data);
+          console.log('update kora hoice re bagna');
         })
 
     }
