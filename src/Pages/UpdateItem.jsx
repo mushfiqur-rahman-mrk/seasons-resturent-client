@@ -23,11 +23,11 @@ const UpdateItem = () => {
         const addby=user.email;
          
         const updateFoodItem={fname,fimage,category,price,origin,stock,addby,description,count}
-        console.log(updateFoodItem);
+ 
         axios.put(`http://localhost:5000/api/v1/all-foods/${_id}`,updateFoodItem)
         .then(res=>{
           console.log(res.data);
-          console.log('add hoice');
+ 
           const Toast = Swal.mixin({
             toast: true,
             position: "top",

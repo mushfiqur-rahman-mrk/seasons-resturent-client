@@ -1,6 +1,7 @@
 import React from "react";
 import useAuth from "../Hooks/useAuth";
 import axios from "axios";
+import Swal from "sweetalert2";
 
 // "fname": "Chinese Dynasty",
 //         "fimage": "chinese.jpg",
@@ -30,11 +31,25 @@ const AddItem = () => {
         const count=0;
         const newFoodItem={fname,fimage,category,price,origin,stock,addby,description,count}
         console.log(newFoodItem);
-        // axios.post('http://localhost:5000/api/v1/all-foods',newFoodItem)
-        // .then(res=>{
-        //   console.log(res.data)
-        //   alert('product added successfully')
-        // })
+        axios.post('http://localhost:5000/api/v1/all-foods',newFoodItem)
+        .then(res=>{
+          console.log(res.data)
+          const Toast = Swal.mixin({
+            toast: true,
+            position: "top",
+            showConfirmButton: false,
+            timer: 3000,
+            timerProgressBar: true,
+            didOpen: (toast) => {
+              toast.onmouseenter = Swal.stopTimer;
+              toast.onmouseleave = Swal.resumeTimer;
+            }
+          });
+          Toast.fire({
+            icon: "success",
+            title: `${fname} addedd successfully`
+          });
+        })
     //     fetch('http://localhost:5000/api/v1/all-foods',{
     //   method: 'POST',
     //   headers:{

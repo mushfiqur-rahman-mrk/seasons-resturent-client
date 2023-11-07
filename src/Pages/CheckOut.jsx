@@ -7,6 +7,7 @@ import { AiOutlinePlus, AiOutlineMinus } from "react-icons/ai";
 import moment from 'moment/moment';
 import GetUser from '../utils/GetUser';
 import axios from 'axios';
+import Swal from "sweetalert2";
  
  
 
@@ -20,11 +21,14 @@ const CheckOut = () => {
  
     const date=moment().format('ll');
  
-    const {_id,fname,fimage,category,price,origin,stock,addBy,description,count}=foodItem || {}
-        
-    // if(email===addby){
+    const {_id,fname,fimage,category,price,origin,stock,addby,description,count}=foodItem || {}
+        console.log(addby);
+        console.log(userEmail);
+
+    //         if(userEmail===addby){
     //   return <p>nijer mal nije kinar niyom nai</p>
-    // }
+    // }    
+
     const handleIncrement = () => {
         console.log('incre hit');
       if (order < stock) {
@@ -43,6 +47,15 @@ const CheckOut = () => {
         const newstock=stock-order;
         const newcount=count + 1;
         const updatefood={newstock,newcount}
+        if(userEmail===addby){
+      return  Swal.fire({
+        position: "top-end",
+        icon: "error",
+        title: "Your can't buy your own product",
+        showConfirmButton: false,
+        timer: 1500
+      });
+    }
         console.log(updatefood);
         axios.post('http://localhost:5000/orders',newOrder)
         .then(res=>{

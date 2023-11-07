@@ -11,7 +11,14 @@ import { useLoaderData } from "react-router-dom";
 const AllFood = () => {
   const [allfoods,setAllfoods]=useState([])
   const [search,setSearch]=useState([])
-  // const allfoods=useLoaderData()
+  const [currentPage,setCurrentPage]=useState(0)
+  const {count}=useLoaderData()
+  console.log(count);
+  const itemPerPage=9;
+  const pageNumber=Math.ceil(count/9)
+  console.log(pageNumber);
+  const pages=[...Array(pageNumber).keys()]
+  console.log(pages);
 
 
   useEffect(()=>{
@@ -20,18 +27,23 @@ const AllFood = () => {
     //   })
     // .then(res=>res.json())
     // .then(data=>setAllfoods(data))
-    axios.get('http://localhost:5000/api/v1/all-foods')
+    // axios.get(`http://localhost:5000/products?page=${currentPage}&size=${itemPerPage}
+    axios.get(`http://localhost:5000/api/v1/all-foods?page=${currentPage}&size=${itemPerPage}`)
     .then(res=>{
       setAllfoods(res.data)
     })
-},[])
+},[currentPage])
+
+ 
+
 useEffect(()=>{
-  axios.get(`http://localhost:5000/api/v1/all-foods?fname=${search}`)
+  // axios.get(`http://localhost:5000/api/v1/all-foods?fname=${search}`)
+  axios.get(`http://localhost:5000/api/v1/all-foods?fname=${search}&page=${currentPage}&size=${itemPerPage}`)
   .then(res=>{
     console.log(res.data);
     setAllfoods(res.data)
   })
-},[search])
+},[search,currentPage])
 
 // console.log(allfoods);
 const handleSearch=(e)=>{
@@ -39,6 +51,27 @@ const handleSearch=(e)=>{
   const searchValue=e.target.search.value;
   setSearch(searchValue)
 }
+
+const handlePrevbtn=()=>{
+  {currentPage === 0 ? setCurrentPage(0):setCurrentPage(currentPage-1)}
+  // const prev=currentPage-1;
+  // console.log(prev);
+  // setCurrentPage(prev)
+}
+const handleNextbtn=()=>{
+  // if(currentPage == pages.length -1){
+  //     setCurrentPage(pages.length -1)
+  // }else{
+  //     setCurrentPage(currentPage+1)
+  // }
+  if(currentPage < pages.length -1 ){
+      setCurrentPage(currentPage+1)
+  }
+}
+
+
+
+
   return (
     <>
  
@@ -66,7 +99,13 @@ const handleSearch=(e)=>{
       </div>
       </Container>
    
-      
+      <div>
+        <button onClick={handlePrevbtn} className="btn btn-warning">prev</button>
+        {
+          pages.map(page=><button onClick={()=>setCurrentPage(page)} className={currentPage === page ? 'bg-red-500 px-3 py-2 rounded-md text-white' : 'px-3 py-2 mx-1 rounded-md bg-black text-white'} key={page}>{page}</button>)
+        }
+        <button onClick={handleNextbtn} className="btn btn-primary">Next</button>
+      </div>
     </>
   );
 };
