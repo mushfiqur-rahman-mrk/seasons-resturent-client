@@ -31,7 +31,7 @@ const AddItem = () => {
         const count=0;
         const newFoodItem={fname,fimage,category,price,origin,stock,addby,description,count}
         console.log(newFoodItem);
-        axios.post('http://localhost:5000/api/v1/all-foods',newFoodItem)
+        axios.post('https://seasons-server.vercel.app/api/v1/all-foods',newFoodItem)
         .then(res=>{
           console.log(res.data)
           const Toast = Swal.mixin({
@@ -50,7 +50,7 @@ const AddItem = () => {
             title: `${fname} addedd successfully`
           });
         })
-    //     fetch('http://localhost:5000/api/v1/all-foods',{
+    //     fetch('https://seasons-server.vercel.app/api/v1/all-foods',{
     //   method: 'POST',
     //   headers:{
     //     'content-type':'application/json'

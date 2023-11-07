@@ -24,7 +24,7 @@ const UpdateItem = () => {
          
         const updateFoodItem={fname,fimage,category,price,origin,stock,addby,description,count}
  
-        axios.put(`http://localhost:5000/api/v1/all-foods/${_id}`,updateFoodItem)
+        axios.put(`https://seasons-server.vercel.app/api/v1/all-foods/${_id}`,updateFoodItem)
         .then(res=>{
           console.log(res.data);
  

@@ -31,7 +31,7 @@ const Register = () => {
         setError('Account created successfully')
         // e.target.reset();
 
-        axios.post('http://localhost:5000/user',newUserDB)
+        axios.post('https://seasons-server.vercel.app/user',newUserDB)
         .then(res=>{
           console.log(res.data)
           alert('user added successfully')
@@ -56,7 +56,7 @@ const Register = () => {
         const email=result.user?.email;
         const name=result.user?.displayName;
         const newUserDB={name,email}
-        axios.post('http://localhost:5000/user',newUserDB)
+        axios.post('https://seasons-server.vercel.app/user',newUserDB)
         .then(res=>{
           console.log(res.data)
           alert('user added successfully')

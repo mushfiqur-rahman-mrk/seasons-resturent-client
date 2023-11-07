@@ -18,7 +18,7 @@ const MyItemCard = ({myItem}) => {
           }).then((result) => {
             if (result.isConfirmed) {
 
-                axios.delete(`http://localhost:5000/api/v1/all-foods/${id}`)
+                axios.delete(`https://seasons-server.vercel.app/api/v1/all-foods/${id}`)
                 .then(res=>{
                 console.log(res.data);
                 console.log('product deleted successfully');

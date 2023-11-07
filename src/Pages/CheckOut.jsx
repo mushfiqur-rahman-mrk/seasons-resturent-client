@@ -57,12 +57,12 @@ const CheckOut = () => {
       });
     }
         console.log(updatefood);
-        axios.post('http://localhost:5000/orders',newOrder)
+        axios.post('https://seasons-server.vercel.app/orders',newOrder)
         .then(res=>{
           console.log(res.data);
           alert('order plased successfully')
         })
-        axios.patch(`http://localhost:5000/api/v1/all-foods/${_id}`,updatefood)
+        axios.patch(`https://seasons-server.vercel.app/api/v1/all-foods/${_id}`,updatefood)
         .then(res=>{
           console.log(res.data);
           console.log('update kora hoice re bagna');

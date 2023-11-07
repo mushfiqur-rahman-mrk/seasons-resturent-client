@@ -1,15 +1,16 @@
 import axios from "axios";
  
 
-const MyOrderCard = ({orderItem}) => {
+const MyOrderCard = ({orderItem,refetch}) => {
     const {fname,price,fimage,category,order,userEmail,userName,date,_id}=orderItem || {}
 
     const hangleDelete=(id)=>{
-        axios.delete(`http://localhost:5000/orders/${id}`)
+        axios.delete(`https://seasons-server.vercel.app/orders/${id}`)
         .then(res=>{
             console.log(res.data);
             console.log('product deleted successfully');
             alert('deleted')
+            refetch()
         })
     }
   return (

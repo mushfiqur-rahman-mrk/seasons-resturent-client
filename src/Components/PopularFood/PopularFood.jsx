@@ -10,7 +10,7 @@ const PopularFood = () => {
   const [popularItems,setPopularItems]=useState([])
 
   useEffect(()=>{
-    axios.get('http://localhost:5000/api/v1/all-foods?sortField=count&sortOrder=desc')
+    axios.get('https://seasons-server.vercel.app/api/v1/all-foods?sortField=count&sortOrder=desc')
     .then(res=>setPopularItems(res.data))
   },[])
   return (

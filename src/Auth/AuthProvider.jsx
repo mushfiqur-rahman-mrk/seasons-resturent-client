@@ -2,6 +2,7 @@ import { GoogleAuthProvider, createUserWithEmailAndPassword, onAuthStateChanged,
 import PropTypes from 'prop-types';
 import { createContext, useEffect, useState } from 'react';
 import auth from './firebase.config';
+import axios from 'axios';
 
 
 
@@ -35,8 +36,17 @@ const AuthProvider = ({children}) => {
     // user observer
     useEffect(()=>{
         const unSubscribe=onAuthStateChanged(auth, currentUser=>{
+            const loggedUser=currentUser?.email || user?.email
             setUser(currentUser)
             setLoading(false)
+            // if user have token
+            if(currentUser){
+                axios.post('https://seasons-server.vercel.app/jwt',loggedUser,{withCredentials:true})
+                .then(res=>console.log(res.data))
+            }else{
+                axios.post('https://seasons-server.vercel.app/logout',loggedUser,{withCredentials:true})
+                .then(res=>console.log(res.data))
+            }
         })
         return ()=>{
             unSubscribe()

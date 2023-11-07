@@ -22,13 +22,13 @@ const AllFood = () => {
 
 
   useEffect(()=>{
-    // fetch('http://localhost:5000/api/v1/all-foods',{
+    // fetch('https://seasons-server.vercel.app/api/v1/all-foods',{
     //     credentials: "include",
     //   })
     // .then(res=>res.json())
     // .then(data=>setAllfoods(data))
-    // axios.get(`http://localhost:5000/products?page=${currentPage}&size=${itemPerPage}
-    axios.get(`http://localhost:5000/api/v1/all-foods?page=${currentPage}&size=${itemPerPage}`)
+    // axios.get(`https://seasons-server.vercel.app/products?page=${currentPage}&size=${itemPerPage}
+    axios.get(`https://seasons-server.vercel.app/api/v1/all-foods?page=${currentPage}&size=${itemPerPage}`)
     .then(res=>{
       setAllfoods(res.data)
     })
@@ -37,8 +37,8 @@ const AllFood = () => {
  
 
 useEffect(()=>{
-  // axios.get(`http://localhost:5000/api/v1/all-foods?fname=${search}`)
-  axios.get(`http://localhost:5000/api/v1/all-foods?fname=${search}&page=${currentPage}&size=${itemPerPage}`)
+  // axios.get(`https://seasons-server.vercel.app/api/v1/all-foods?fname=${search}`)
+  axios.get(`https://seasons-server.vercel.app/api/v1/all-foods?fname=${search}&page=${currentPage}&size=${itemPerPage}`)
   .then(res=>{
     console.log(res.data);
     setAllfoods(res.data)

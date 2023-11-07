@@ -8,7 +8,7 @@ const GetUser = () => {
   const email = user.email;
 
   useEffect(() => {
-    axios.get(`http://localhost:5000/users/${email}`)
+    axios.get(`https://seasons-server.vercel.app/users/${email}`)
     .then((res) => {
       setSingleUser(res.data);
     });

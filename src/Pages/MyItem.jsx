@@ -13,7 +13,7 @@ const MyItem = () => {
     const {user}=useAuth()
     const email=user.email
     useEffect(()=>{
-      axios.get(`http://localhost:5000/api/v1/all-foods/user/${email}`)
+      axios.get(`https://seasons-server.vercel.app/api/v1/all-foods/user/${email}`)
     .then(res=>{
       console.log(res.data);
       setMyItems(res.data)

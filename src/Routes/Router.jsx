@@ -13,6 +13,7 @@ import MyItem from "../Pages/MyItem";
 import { element } from "prop-types";
 import SingleFood from "../Pages/SingleFood";
 import CheckOut from "../Pages/CheckOut";
+import PrivetRoute from "./PrivetRoute";
  
 
 
@@ -29,7 +30,7 @@ const router = createBrowserRouter([
         {
             path:'all-food',
             element:<AllFood></AllFood>,
-            loader:()=> fetch('http://localhost:5000/itemCount')
+            loader:()=> fetch('https://seasons-server.vercel.app/itemCount')
         },
         {
             path:'blog',
@@ -37,30 +38,30 @@ const router = createBrowserRouter([
         },
         {
           path:'my-order',
-          element:<MyOrder></MyOrder>
+          element: <PrivetRoute><MyOrder></MyOrder></PrivetRoute> 
         },
         {
           path:'add-item',
-          element:<AddItem></AddItem>
+          element: <PrivetRoute><AddItem></AddItem></PrivetRoute>
         },
         {
           path:'update-item/:id',
-          element:<UpdateItem></UpdateItem>,
-          loader: ({params})=>fetch(`http://localhost:5000/api/v1/all-foods/${params.id}`)
+          element: <PrivetRoute><UpdateItem></UpdateItem></PrivetRoute>,
+          loader: ({params})=>fetch(`https://seasons-server.vercel.app/api/v1/all-foods/${params.id}`)
         },
         {
           path:'my-item',
-          element:<MyItem></MyItem>
+          element:<PrivetRoute><MyItem></MyItem></PrivetRoute>
         },
         {
           path:'single-food/:id',
-          element:<SingleFood></SingleFood>,
-          loader: ({params})=>fetch(`http://localhost:5000/api/v1/all-foods/${params.id}`)
+          element:<PrivetRoute><SingleFood></SingleFood></PrivetRoute>,
+          loader: ({params})=>fetch(`https://seasons-server.vercel.app/api/v1/all-foods/${params.id}`)
         },
         {
           path:'checkOut/:id',
           element:<CheckOut></CheckOut>,
-          loader: ({params})=>fetch(`http://localhost:5000/api/v1/all-foods/${params.id}`)
+          loader: ({params})=>fetch(`https://seasons-server.vercel.app/api/v1/all-foods/${params.id}`)
         }
     ]
   },
