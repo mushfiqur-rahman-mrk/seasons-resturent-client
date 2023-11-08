@@ -1,15 +1,16 @@
 import { BsFacebook,BsInstagram,BsTwitter } from "react-icons/bs"; 
-
+import footersvg from '/src/assets/logo.png'
+import footerlogo from '/src/assets/footershape.png'
 const Footer = () => {
   return (
     <>
       <div className="bg-gray-900 relative">
         <div className="mt-[-10px]">
-          <img src="/src/assets/footershape.png"  alt="" />
+          <img src={footerlogo}  alt="" />
         </div>
       <footer className="footer p-10 text-base-content">
         <aside>
-             <img src="/src/assets/logo.png" className="sm:w-60" alt="" />
+             <img src={footersvg} className="sm:w-60" alt="" />
         </aside>
 
         <div className="text-white">

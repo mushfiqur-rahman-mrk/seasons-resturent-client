@@ -59,7 +59,7 @@ const Navbar = () => {
                         <NavLink to={'/add-item'} className={({isActive})=> isActive ? 'underline text-red-500 hover:text-blue-600 cursor-pointer' : 'text-black hover:text-blue-600 cursor-pointer' }>Add a food item</NavLink>
                       </li>
                       <li>
-                        <NavLink to={'/my-order'} className={({isActive})=> isActive ? 'underline text-red-500 hover:text-blue-600 cursor-pointer' : 'text-black hover:text-blue-600 cursor-pointer' }>Orders</NavLink>
+                        <NavLink to={'/my-order'} className={({isActive})=> isActive ? 'underline text-red-500 hover:text-blue-600 cursor-pointer' : 'text-black hover:text-blue-600 cursor-pointer' }>My Orders</NavLink>
                       </li>
                        
                           <button onClick={handleLogout} className="btn bg-gradient-to-r from-yellow-500 to-red-500 text center hidden lg:block">log out</button> 

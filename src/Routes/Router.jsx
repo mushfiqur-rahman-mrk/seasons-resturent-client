@@ -61,7 +61,7 @@ const router = createBrowserRouter([
         },
         {
           path:'checkOut/:id',
-          element:<CheckOut></CheckOut>,
+          element:<PrivetRoute><CheckOut></CheckOut></PrivetRoute>,
           loader: ({params})=>fetch(`https://seasons-server.vercel.app/api/v1/all-foods/${params.id}`)
         }
     ]

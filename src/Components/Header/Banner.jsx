@@ -1,7 +1,8 @@
  
+import { Link } from 'react-router-dom';
 import Bannerbtn from '../Ui/Bannerbtn/Bannerbtn';
 import bannerbg from '/src/assets/banner bg.jpg'
- 
+import bannersvg from '/src/assets/10009.png'
 
 const Banner = () => {
   return (
@@ -16,7 +17,7 @@ const Banner = () => {
           <div className="absolute inset-0 bg-black opacity-60"></div>
         </div>
         <div className='absolute bottom-0 mb-[-30px] '>
-          <img src="/src/assets/10009.png" alt="" />
+          <img src={bannersvg} alt="" />
         </div>
 
         <div className="relative z-10 flex flex-col justify-center items-center h-full text-center">
@@ -53,7 +54,12 @@ const Banner = () => {
           >
             See All Food
           </button> */}
+
+          <Link to={'/all-food'}>
+
           <Bannerbtn></Bannerbtn>
+          </Link>
+          
         </div>
       </div>
     </>

@@ -41,6 +41,8 @@ const AuthProvider = ({children}) => {
             setLoading(false)
             // if user have token
             if(currentUser){
+                // https://seasons-server.vercel.app
+                // axios.post('https://seasons-server.vercel.app/jwt',loggedUser,{withCredentials:true})
                 axios.post('https://seasons-server.vercel.app/jwt',loggedUser,{withCredentials:true})
                 .then(res=>console.log(res.data))
             }else{
@@ -51,7 +53,7 @@ const AuthProvider = ({children}) => {
         return ()=>{
             unSubscribe()
         }
-        },[])
+        },[user?.email])
 
     
     const authInfo={newUser,emailLogin,user,logOut,loading,google}

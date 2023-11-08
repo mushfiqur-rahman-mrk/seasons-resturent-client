@@ -34,6 +34,7 @@ const MyItem = () => {
       </Container> */}
 
 
+<div className='min-h-screen'>
 <Container>
       <div className="bg-gray-600 mt-10 mb-28">
 	<div className="col-span-12">
@@ -67,6 +68,7 @@ const MyItem = () => {
 	</div>
 </div>
 </Container>
+</div>
  
         </>
     );

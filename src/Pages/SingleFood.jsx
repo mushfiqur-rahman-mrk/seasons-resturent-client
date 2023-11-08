@@ -5,7 +5,7 @@ import Cardbtn from "../Components/Ui/CardBtn/Cardbtn";
 
 const SingleFood = () => {
   const foodItem =useLoaderData()
-  const {_id,fname,fimage,category,price,origin,stock,addBy,description,count}=foodItem || {}
+  const {_id,fname,fimage,category,price,origin,stock,addby,description,count}=foodItem || {}
  
   return (
     <>
@@ -28,7 +28,7 @@ const SingleFood = () => {
               <p className="leading-relaxed">
                  {description}
               </p>
-              <p className="my-2">Add By: {addBy}</p>
+              <p className="my-2">Add By: {addby}</p>
               <hr />
               <div className="flex my-5 justify-between">
                 <p className="title-font font-medium text-2xl text-gray-900">

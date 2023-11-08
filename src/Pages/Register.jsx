@@ -34,7 +34,7 @@ const Register = () => {
         axios.post('https://seasons-server.vercel.app/user',newUserDB)
         .then(res=>{
           console.log(res.data)
-          alert('user added successfully')
+          // alert('user added successfully')
         })
 
         Swal.fire({

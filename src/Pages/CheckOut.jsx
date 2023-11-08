@@ -60,7 +60,14 @@ const CheckOut = () => {
         axios.post('https://seasons-server.vercel.app/orders',newOrder)
         .then(res=>{
           console.log(res.data);
-          alert('order plased successfully')
+          Swal.fire({
+            position: "top-end",
+            icon: "success",
+            title: "Order plased successfullly",
+            showConfirmButton: false,
+            timer: 1500
+          });
+          // alert('order plased successfully')
         })
         axios.patch(`https://seasons-server.vercel.app/api/v1/all-foods/${_id}`,updatefood)
         .then(res=>{
@@ -104,7 +111,7 @@ const CheckOut = () => {
                                     </AiOutlinePlus>
                             </div>
                             {
-                                stock > 0 ? <button onClick={handleOrder} className='bg-gradient-to-r from-red-500 to-yellow-500 rounded-xl shadow-lg hover:scale-90 mt-5'>Place Order</button>
+                                stock > 0 ? <button onClick={handleOrder} className='px-4 py-2 text-white bg-gradient-to-r from-red-500 to-yellow-500 rounded-xl shadow-lg hover:scale-90 mt-5'>Place Order</button>
                                 :
                                 <button className='btn btn-error mt-5'>Out of Stock</button>
                             }
