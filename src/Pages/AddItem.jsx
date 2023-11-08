@@ -2,6 +2,7 @@ import React from "react";
 import useAuth from "../Hooks/useAuth";
 import axios from "axios";
 import Swal from "sweetalert2";
+import Title from "../Components/Ui/Title";
 
 // "fname": "Chinese Dynasty",
 //         "fimage": "chinese.jpg",
@@ -70,11 +71,11 @@ const AddItem = () => {
       >
         <div className="">
           <h2 className="mb-4 sm:text-4xl text-3xl tracking-tight font-extrabold text-center ">
-            Let's Add Some New Product
+            <Title>Add Food</Title>
           </h2>
 
           <div>
-            <div className="bg-gray-200 mt-5 rounded-xl shadow-lg">
+            <div className="mt-5 rounded-xl shadow-lg">
               <div className="py-8 lg:py-16 px-4 mx-auto max-w-screen-md">
                 <form onSubmit={handleSubmit} className="space-y-8">
 

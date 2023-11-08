@@ -3,6 +3,7 @@ import useAuth from '../Hooks/useAuth';
 import { useLoaderData } from 'react-router-dom';
 import axios from 'axios';
 import Swal from 'sweetalert2';
+import Title from '../Components/Ui/Title';
 
 const UpdateItem = () => {
   const {user}=useAuth()
@@ -57,11 +58,11 @@ const UpdateItem = () => {
       >
         <div className="">
           <h2 className="mb-4 sm:text-4xl text-3xl tracking-tight font-extrabold text-center ">
-            Update {fname}
+            Update <Title>{fname}</Title> 
           </h2>
 
           <div>
-            <div className="bg-gray-200 mt-5 rounded-xl shadow-lg">
+            <div className="mt-5 rounded-xl shadow-lg">
               <div className="py-8 lg:py-16 px-4 mx-auto max-w-screen-md">
                 <form onSubmit={handleSubmit} className="space-y-8">
 
@@ -204,7 +205,7 @@ const UpdateItem = () => {
                     ></textarea>
                   </div>
 
-                  <button className="px-5 w-full text-white font-semibold bg-gradient-to-r from-cyan-500 to-blue-500 hover:ease-in py-3 transition duration-150 hover:text-black rounded-xl shadow-lg mx-auto md:w-1/2 ">
+                  <button className="px-5 w-full text-white font-semibold bg-gradient-to-r from-red-500 to-yellow-500 hover:ease-in py-3 transition duration-150 hover:text-black rounded-xl shadow-lg mx-auto md:w-1/2 ">
                     Update
                   </button>
                 </form>

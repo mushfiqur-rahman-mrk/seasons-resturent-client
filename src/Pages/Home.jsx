@@ -1,6 +1,7 @@
 import Downlode from "../Components/DownlodeApp/Downlode";
 import Banner from "../Components/Header/Banner";
 import PopularFood from "../Components/PopularFood/PopularFood";
+import Review from "../Components/Review/Review";
 import HotDeals from "../Components/Ui/HotDeals";
  
 
@@ -11,7 +12,8 @@ const Home = () => {
         <div>
             <Banner></Banner>
             <PopularFood></PopularFood>
-            <HotDeals></HotDeals>
+            {/* <HotDeals></HotDeals> */}
+            <Review></Review>
             <Downlode></Downlode>
              
         </div>
