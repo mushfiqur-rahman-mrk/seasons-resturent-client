@@ -15,13 +15,14 @@ const Error = () => {
                             </div>
                             <div className="contant_box_404">
                                 <h3 className="h2">Look like you're lost</h3>
-                                <p>the page you are looking for not avaible!</p>
-                                <Link to={'/'}>
-                                 
-
-                                </Link>
+                                <p>the page you are looking for not found!</p>
+                                
                                 
                             </div>
+                            <Link to={'/'}>
+                                 
+                                        <button className='btn bg-gradient-to-r from-yellow-500 to-red-500 text-white mt-5'>Back to home</button>
+                                </Link>
                         </div>
                     </div>
                 </div>

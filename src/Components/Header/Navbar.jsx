@@ -62,12 +62,12 @@ const Navbar = () => {
                         <NavLink to={'/my-order'} className={({isActive})=> isActive ? 'underline text-red-500 hover:text-blue-600 cursor-pointer' : 'text-black hover:text-blue-600 cursor-pointer' }>Orders</NavLink>
                       </li>
                        
-                          <button onClick={handleLogout} className="btn bg-red-300 text center hidden lg:block">log out</button> 
+                          <button onClick={handleLogout} className="btn bg-gradient-to-r from-yellow-500 to-red-500 text center hidden lg:block">log out</button> 
                       
                     </ul>
                   </div>
                     :
-                    <Link to={'/login'}><button className="px-4 bg-red-400 py-2 rounded-lg text-white">Login</button></Link>
+                    <Link to={'/login'}><button className="px-4 bg-gradient-to-r from-yellow-500 to-red-500 py-2 rounded-lg text-white">Login</button></Link>
                 }
                 
 
@@ -76,7 +76,7 @@ const Navbar = () => {
                     <input id="my-drawer-4" type="checkbox" className="drawer-toggle" />
                     <div className="drawer-content">
                         {/* Page content here----drawer-button */}
-                        <label htmlFor="my-drawer-4" className=""><AiOutlineMenu className="text-2xl text-black"></AiOutlineMenu></label>
+                        <label htmlFor="my-drawer-4" className=""><AiOutlineMenu className="text-2xl text-white"></AiOutlineMenu></label>
                     </div> 
                     <div className="drawer-side">
                         <label htmlFor="my-drawer-4" aria-label="close sidebar" className="drawer-overlay"></label>
@@ -91,7 +91,7 @@ const Navbar = () => {
                             <NavLink to={'/blog'} className={({isActive})=> isActive ? 'underline text-red-500 hover:text-blue-600 cursor-pointer' : 'text-black hover:text-blue-600 cursor-pointer' }>Blog</NavLink>
                         </li>
                         {
-                            user && <button onClick={handleLogout} className="btn bg-red-300 text center lg:hidden">log out</button> 
+                            user && <button onClick={handleLogout} className="btn bg-gradient-to-r from-yellow-500 to-red-500 text center lg:hidden">log out</button> 
                         }
                         
                         </ul>

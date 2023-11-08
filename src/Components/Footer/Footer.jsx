@@ -4,8 +4,8 @@ const Footer = () => {
   return (
     <>
       <div className="bg-gray-900 relative">
-        <div>
-          <img src="/src/assets/footershape.png" alt="" />
+        <div className="mt-[-10px]">
+          <img src="/src/assets/footershape.png"  alt="" />
         </div>
       <footer className="footer p-10 text-base-content">
         <aside>
