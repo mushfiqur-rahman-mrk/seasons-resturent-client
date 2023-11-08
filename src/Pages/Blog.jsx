@@ -8,7 +8,7 @@ const Blog = () => {
         <div className="gird grid-cols-1 my-20">
           <div className="p-5 border my-10">
             <div>
-              <h1 className="text-xl font-semibold text-center mb-5">
+              <h1 className="text-xl font-semibold text-center mb-6">
                 What is One way data binding
               </h1>
               <p>
