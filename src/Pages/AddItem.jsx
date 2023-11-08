@@ -34,6 +34,7 @@ const AddItem = () => {
         axios.post('https://seasons-server.vercel.app/api/v1/all-foods',newFoodItem)
         .then(res=>{
           console.log(res.data)
+          e.target.reset();
           const Toast = Swal.mixin({
             toast: true,
             position: "top",
@@ -127,7 +128,7 @@ const AddItem = () => {
                         Product image URL
                       </label>
                       <input
-                        type="text"
+                        type="url"
                         id="email"
                         className="p-2 border rounded-xl w-full outline-none focus:border-red-500"
                         placeholder="Image url"

@@ -71,23 +71,23 @@ const CheckOut = () => {
     }
     return (
         <>
+        <div className='min-h-screen flex flex-col justify-center items-center'>
         <Title>Check Out</Title>
              <Container>
                     <div className='grid grid-cols-1 lg:grid-cols-3 my-10 border mx-10'>
                         <div className='bg-red-300'>
                         <img src={fimage} className='w-full h-full' alt="" />
                         </div>
-                        <div className='col-span-2 flex justify-center items-center mt-5'>
-                            <div>
+                        <div className='col-span-2 flex items-center lg:ml-10 p-10'>
+                            <div className='space-y-1'>
                             
-                            <h1 className='text-2xl font-semibold'>{fname}</h1>
-                            <p>Price: ${price}</p>
+                            <h1 className='text-4xl font-semibold mb-5'>{fname}</h1>
+                            <p className=''><span className='font-semibold'>Price: </span><span>${price}</span> </p>
                             <p>{date}</p>
-                            <p>{userName}</p>
-                            <p>{userEmail}</p>
-                            <p>stock {stock}</p>
-                            <p>count {count}</p>
-                            <p>Koyta lagbe</p>
+                            <p><span className='font-semibold'>Name:</span> {userName}</p>
+                            <p><span className='font-semibold'>Email:</span> {userEmail}</p>
+ 
+                            <p className='font-semibold'>Your Quantity</p>
                             <div className="flex gap-3 items-center">
                                     <AiOutlineMinus
                                     onClick={handledecrement}
@@ -104,7 +104,7 @@ const CheckOut = () => {
                                     </AiOutlinePlus>
                             </div>
                             {
-                                stock > 0 ? <button onClick={handleOrder} className='btn btn-accent mt-5'>Place Order</button>
+                                stock > 0 ? <button onClick={handleOrder} className='bg-gradient-to-r from-red-500 to-yellow-500 rounded-xl shadow-lg hover:scale-90 mt-5'>Place Order</button>
                                 :
                                 <button className='btn btn-error mt-5'>Out of Stock</button>
                             }
@@ -113,6 +113,7 @@ const CheckOut = () => {
                         </div>
                     </div>
       </Container>  
+        </div>
         </>
     );
 };

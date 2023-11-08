@@ -23,9 +23,11 @@ const MyItem = () => {
         <>
  
       <Container>
-        <div>
+        <div className='min-h-screen'>
           {
-            myItems?.map(myItem=><MyItemCard key={myItem._id} myItem={myItem}></MyItemCard>)
+            myItems?.length > 0 ? myItems?.map(myItem=><MyItemCard key={myItem._id} myItem={myItem}></MyItemCard>)
+            :
+            <p className='text-2xl font-semibold text-center mt-10'>You didn't add any product yet</p>
           }
         </div>
       </Container>

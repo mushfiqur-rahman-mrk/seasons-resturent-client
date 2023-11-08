@@ -4,7 +4,7 @@ const Title = ({children}) => {
   return (
     <>
       <p className="font-bold text-5xl text-center">
-        <span className="text-green-500 mx-1 mb-1 font-extrabold text-5xl relative inline-block stroke-current">
+        <span className="text-yellow-500 mx-1 mb-1 font-extrabold text-5xl relative inline-block stroke-current">
             {children}
           <svg
             className="absolute -bottom-1.5 w-full max-h-2 "

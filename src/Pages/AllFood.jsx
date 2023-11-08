@@ -6,6 +6,7 @@ import axios, { all } from "axios";
 import AllFoodsCard from "./AllFoodsCard";
 import Container from "../Components/Ui/Container";
 import { useLoaderData } from "react-router-dom";
+import { BsArrowRight,BsArrowLeft } from "react-icons/bs";
  
 
 const AllFood = () => {
@@ -75,8 +76,8 @@ const handleNextbtn=()=>{
   return (
     <>
  
-
-<div className="relative max-w-sm mx-auto my-10">
+ <div className="bg-red-500 py-20 mb-10 bg-[url('/src/assets/downlode.jpg')] bg-no-repeat bg-cover  ">
+ <div className="relative max-w-sm mx-auto">
     <form onSubmit={handleSearch}>
     <input className="w-full py-2 px-4 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500" name="search" type="search" placeholder="Search"/>
    
@@ -87,6 +88,9 @@ const handleNextbtn=()=>{
   </button>
   </form>
 </div>
+ </div>
+
+
      
 
       <Title>All foods</Title>
@@ -99,17 +103,17 @@ const handleNextbtn=()=>{
       </div>
       </Container>
    
-      <div>
-        <button onClick={handlePrevbtn} className="btn btn-warning">prev</button>
+      <div className="flex justify-center my-20 gap-5 items-center">
+        <h1 onClick={handlePrevbtn} className="px-2 cursor-pointer hover:translate-y-2 duration-75"><BsArrowLeft className="text-red-500 text-xl"></BsArrowLeft></h1>
         {
-          pages.map(page=><button onClick={()=>setCurrentPage(page)} className={currentPage === page ? 'bg-red-500 px-3 py-2 rounded-md text-white' : 'px-3 py-2 mx-1 rounded-md bg-black text-white'} key={page}>{page}</button>)
+          pages.map(page=><button onClick={()=>setCurrentPage(page)} className={currentPage === page ? 'bg-red-500 px-3 py-1 rounded-full text-white' : 'px-3 py-2 mx-1 rounded-full text-red-500'} key={page}>{page}</button>)
         }
-        <button onClick={handleNextbtn} className="btn btn-primary">Next</button>
+        <h1 onClick={handleNextbtn} className="px-2 cursor-pointer hover:translate-x-2 duration-75"><BsArrowRight className="text-red-500 text-xl"></BsArrowRight></h1>
       </div>
     </>
   );
 };
-
+ 
 AllFood.propTypes = {};
 
 export default AllFood;

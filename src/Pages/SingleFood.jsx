@@ -1,6 +1,7 @@
 import React from "react";
 import { Link, useLoaderData } from "react-router-dom";
 import Container from "../Components/Ui/Container";
+import Cardbtn from "../Components/Ui/CardBtn/Cardbtn";
 
 const SingleFood = () => {
   const foodItem =useLoaderData()
@@ -27,16 +28,14 @@ const SingleFood = () => {
               <p className="leading-relaxed">
                  {description}
               </p>
-              <p>made by- user data base theke ashbe</p>
+              <p className="my-2">Add By: {addBy}</p>
               <hr />
               <div className="flex my-5 justify-between">
                 <p className="title-font font-medium text-2xl text-gray-900">
                   ${price}
                 </p>
                 <Link to={`/checkOut/${_id}`}>
-                  <button className="flex ml-auto text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded">
-                    Order Now
-                  </button>
+                   <Cardbtn>Order Now</Cardbtn>
                 </Link>
               </div>
             </div>

@@ -43,12 +43,14 @@ console.log(data);
  
 
   return (
-    <div>
-      <h1>my ordr</h1>
+    <div className="min-h-screen">
+       
       <Container>
-        <div>
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-5">
           {
-            data?.map(orderItem=><MyOrderCard key={orderItem._id} refetch={refetch} orderItem={orderItem}></MyOrderCard>)
+            data?.length > 0 ? data?.map(orderItem=><MyOrderCard key={orderItem._id} refetch={refetch} orderItem={orderItem}></MyOrderCard>)
+            :
+            <p className="text-2xl font-bold text-center mt-10">You did't order any food yer</p>
           }
         </div>
       </Container>

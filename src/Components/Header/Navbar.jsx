@@ -3,7 +3,7 @@ import { AiOutlineMenu } from "react-icons/ai";
 import useAuth from "../../Hooks/useAuth";
 import userimg from '/src/assets/user.png'
 import Swal from "sweetalert2";
- 
+import logo from '/src/assets/logo.png' 
 
 const Navbar = () => {
     const {user,logOut}=useAuth()
@@ -21,27 +21,29 @@ const Navbar = () => {
       }
       
   return (
-    <div className="bg-gray-200">
+    <div className="bg-gray-900">
       <div className="flex justify-between max-w-5xl px-3 mx-auto py-2 items-center ">
             <div>
-                <p>Seasons</p>
+                <img src={logo} alt="seasons logo" className="w-40" />
             </div>
             <div className="hidden lg:block">
-                <div className="flex gap-3 mr-5 ">
+                <div className="flex gap-4 mr-5 ">
                     {/* Navbar menu content here */}
-                    <NavLink to={'/'} className={({isActive})=> isActive ? 'underline text-red-500 hover:text-blue-600 cursor-pointer' : 'text-black hover:text-blue-600 cursor-pointer' }>Home</NavLink>
-                    <NavLink to={'/all-food'} className={({isActive})=> isActive ? 'underline text-red-500 hover:text-blue-600 cursor-pointer' : 'text-black hover:text-blue-600 cursor-pointer' }>All Food</NavLink>
-                    <NavLink to={'/blog'} className={({isActive})=> isActive ? 'underline text-red-500 hover:text-blue-600 cursor-pointer' : 'text-black hover:text-blue-600 cursor-pointer' }>Blog</NavLink>
+                    <NavLink to={'/'} className={({isActive})=> isActive ? 'text-yellow-500 font-semibold hover:text-yellow-700 hover:underline cursor-pointer' : 'text-white font-semibold hover:text-yellow-700 hover:underline cursor-pointer' }>Home</NavLink>
+
+                    <NavLink to={'/all-food'} className={({isActive})=> isActive ? 'text-yellow-500 font-semibold hover:text-yellow-700 hover:underline cursor-pointer' : 'text-white font-semibold hover:text-yellow-700 hover:underline cursor-pointer' }>All Food</NavLink>
+
+                    <NavLink to={'/blog'} className={({isActive})=> isActive ? 'text-yellow-500 font-semibold hover:text-yellow-700 hover:underline cursor-pointer' : 'text-white font-semibold hover:text-yellow-700 hover:underline cursor-pointer' }>Blog</NavLink>
                 </div>  
             </div>
             <div className="flex items-center gap-2 z-50">
                 {
                     user ?  <div className="dropdown dropdown-end">
-                    <label tabIndex={0} className="btn">
+                    <label tabIndex={0} className="">
                       {
                         user?.photoURL ?  <img src={user?.photoURL} className="h-10 rounded-full object-cover w-20" alt="" />
                         :
-                        <img src={userimg} className="h-10 rounded-full object-cover w-20" alt="" />
+                        <img src={userimg} className="rounded-full object-cover w-10" alt="" />
                       }
                         
                     </label>

@@ -1,6 +1,6 @@
 import { createBrowserRouter } from "react-router-dom";
 import Home from "../Pages/Home";
-import Error from "../Pages/Error";
+ 
 import MainLayout from "../Layouts/MainLayout";
 import AllFood from "../Pages/AllFood";
 import Blog from "../Pages/Blog";
@@ -14,6 +14,7 @@ import { element } from "prop-types";
 import SingleFood from "../Pages/SingleFood";
 import CheckOut from "../Pages/CheckOut";
 import PrivetRoute from "./PrivetRoute";
+import Error from "../Pages/Error/Error";
  
 
 
@@ -21,7 +22,7 @@ const router = createBrowserRouter([
   {
     path: "/",
     element:<MainLayout></MainLayout>,
-    // errorElement: <Error></Error>,
+    errorElement: <Error></Error>,
     children:[
         {
             index:true,
