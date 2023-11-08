@@ -1,137 +1,115 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import StaggeredDropDown from '../Components/Header/Drop';
-import { AiOutlineEdit
-    ,AiOutlineDelete } from "react-icons/ai";
- 
+import React from "react";
+import Container from "../Components/Ui/Container";
 
-const Blog = props => {
-    return (
-        <div>
-            <h1>blog</h1>
-            <StaggeredDropDown></StaggeredDropDown>
-          
- 
- 
-<div className="flex items-center justify-center min-h-screen bg-gray-900">
-	<div className="col-span-12">
-		<div className="overflow-auto lg:overflow-visible ">
-			<table className="table text-gray-400 border-separate space-y-6 text-sm">
-				<thead className="bg-gray-800 text-gray-500">
-					<tr>
-						<th className="p-3">Brand</th>
-						<th className="p-3 text-left">Category</th>
-						<th className="p-3 text-left">Price</th>
-						<th className="p-3 text-left">Status</th>
-						<th className="p-3 text-left">Action</th>
-					</tr>
-				</thead>
+const Blog = () => {
+  return (
+    <>
+      <Container>
+        <div className="gird grid-cols-1 my-20">
+          <div className="p-5 border my-10">
+            <div>
+              <h1 className="text-xl font-semibold text-center mb-5">
+                What is One way data binding
+              </h1>
+              <p>
+                One-way data binding is a concept used in web development and
+                user interface design to describe a unidirectional flow of data
+                between a data source (typically a model or a variable) and a
+                presentation layer (usually the user interface or a view). In
+                this data binding approach, changes in the data source are
+                reflected in the user interface, but not the other way around.
+                It means that changes in the user interface do not affect the
+                underlying data source.
+                <br></br>
+                One-way data binding is a common pattern in front-end frameworks
+                and libraries like AngularJS, React, and Vue.js. It helps
+                maintain a clear separation of concerns between the data and the
+                presentation, making it easier to manage and update complex user
+                interfaces
+              </p>
+            </div>
+          </div>
 
-				<tbody>
+          <div className="p-5 border my-10">
+            <div>
+              <h1 className="text-xl font-semibold text-center mb-5">
+                What is NPM in node.js?
+              </h1>
+              <p>
+                npm is the standard package manager for Node.js A package in
+                Node.js contains all the files you need for a module. Modules
+                are JavaScript libraries you can include in your project. In
+                September 2022 over 2.1 million packages were reported being
+                listed in the npm registry, making it the biggest single
+                language code repository on Earth, and you can be sure there is
+                a package for (almost!) everything. It started as a way to
+                download and manage dependencies of Node.js packages, but it has
+                since become a tool used also in frontend JavaScript.
+              </p>
+            </div>
+          </div>
 
-					<tr className="bg-gray-800">
-						<td className="p-3">
-							<div className="flex align-items-center">
-								<img className="rounded-full h-12 w-12  object-cover" src="https://images.unsplash.com/photo-1613588718956-c2e80305bf61?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=634&q=80" alt="unsplash image"/>
-								<div className="ml-3">
-									<div className="">Appple</div>
-									<div className="text-gray-500">mail@rgmail.com</div>
-								</div>
-							</div>
-						</td>
-						<td className="p-3">
-							Technology
-						</td>
-						<td className="p-3 font-bold">
-							200.00$
-						</td>
-						<td className="p-3">
-							<span className="bg-green-400 text-gray-50 rounded-md px-2">available</span>
-						</td>
-						<td className="p-3 ">
-                        <AiOutlineEdit></AiOutlineEdit>
-							<a href="#" className="text-gray-400 hover:text-gray-100  mx-2">
-								<i className="material-icons-outlined text-base">edit</i>
-							</a>
-                            <AiOutlineDelete></AiOutlineDelete>
-							<a href="#" className="text-gray-400 hover:text-gray-100  ml-2">
-								<i className="material-icons-round text-base">delete_outline</i>
-							</a>
-						</td>
-					</tr>
-
-					<tr className="bg-gray-800">
-						<td className="p-3">
-							<div className="flex align-items-center">
-								<img className="rounded-full h-12 w-12   object-cover" src="https://images.unsplash.com/photo-1423784346385-c1d4dac9893a?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80" alt="unsplash image"/>
-								<div className="ml-3">
-									<div className="">Realme</div>
-									<div className="text-gray-500">mail@rgmail.com</div>
-								</div>
-							</div>
-						</td>
-						<td className="p-3">
-							Technology
-						</td>
-						<td className="p-3 font-bold">
-							200.00$
-						</td>
-						<td className="p-3">
-							<span className="bg-red-400 text-gray-50 rounded-md px-2">no stock</span>
-						</td>
-						<td className="p-3">
-							<a href="#" className="text-gray-400 hover:text-gray-100  mr-2">
-								<i className="material-icons-outlined text-base">visibility</i>
-							</a>
-							<a href="#" className="text-gray-400 hover:text-gray-100 mx-2">
-								<i className="material-icons-outlined text-base">edit</i>
-							</a>
-							<a href="#" className="text-gray-400 hover:text-gray-100 ml-2">
-								<i className="material-icons-round text-base">delete_outline</i>
-							</a>
-						</td>
-					</tr>
-
- 
-				</tbody>
-			</table>
-		</div>
-	</div>
-</div>
-
-
-
-
-
-{/* <style>
-	.table {
-		border-spacing: 0 15px;
-	}
-
-	i {
-		font-size: 1rem !important;
-	}
-
-	.table tr {
-		border-radius: 20px;
-	}
-
-	tr td:nth-child(n+5),
-	tr th:nth-child(n+5) {
-		border-radius: 0 .625rem .625rem 0;
-	}
-
-	tr td:nth-child(1),
-	tr th:nth-child(1) {
-		border-radius: .625rem 0 0 .625rem;
-	}
-</style> */}
+          <div className="p-5 border my-10">
+            <div>
+              <h1 className="text-xl font-semibold text-center mb-5">
+                Different between Mongodb database vs mySQL database
+              </h1>
+              <p>
+                MongoDB and MySQL are both popular database management systems,
+                but they have distinct differences in terms of their data
+                models, architecture, and use cases. Here's a comparison of
+                MongoDB and MySQL:
+                <br />
+				<p className="font-semibold my-2">MongoDB</p>
+                <ul className="list-disc list-inside">
+                  <li>NoSQL database.</li>
+                  <li>Document-oriented data model using BSON.</li>
+                  <li>Schema-less design with flexible document structures.</li>
+                  <li>Query language based on JSON-like documents.</li>
+                  <li>
+                    Known for horizontal scalability, suitable for handling
+                    large volumes of data.
+                  </li>
+                  <li>
+                    Provides ACID compliance at the document level and supports
+                    multi-document transactions.
+                  </li>
+                  <li>
+                    Ideal for scenarios with evolving or unstructured data, like
+                    content management systems and real-time analytics.
+                  </li>
+                </ul>
+                <p className="font-semibold my-2">MySQL</p>
+                <ul className="list-disc list-inside">
+                  <li>Relational database management system (RDBMS).</li>
+                  <li>
+                    Tabular, structured data model with predefined schemas.
+                  </li>
+                  <li>Requires schema alterations to change data structure.</li>
+                  <li>
+                    Utilizes SQL (Structured Query Language) for querying and
+                    manipulation.
+                  </li>
+                  <li>
+                    Can scale vertically or use configurations like master-slave
+                    or sharding for distribution.
+                  </li>
+                  <li>
+                    Provides ACID compliance at both the transaction and table
+                    levels.
+                  </li>
+                  <li>
+                    Suitable for applications with stable, structured data, such
+                    as e-commerce and financial systems.
+                  </li>
+                </ul>
+              </p>
+            </div>
+          </div>
         </div>
-    );
-};
-
-Blog.propTypes = {
-    
+      </Container>
+    </>
+  );
 };
 
 export default Blog;

@@ -210,7 +210,7 @@ const AddItem = () => {
                     ></textarea>
                   </div>
 
-                  <button className="px-5 w-full text-white font-semibold bg-gradient-to-r from-cyan-500 to-blue-500 hover:ease-in py-3 transition duration-150 hover:text-black rounded-xl shadow-lg mx-auto md:w-1/2 ">
+                  <button className="px-5 w-full text-white font-semibold bg-gradient-to-r from-yellow-500 to-red-500 hover:ease-in py-3 transition duration-150 hover:text-black rounded-xl shadow-lg mx-auto md:w-1/2 ">
                     Add Product
                   </button>
                 </form>
