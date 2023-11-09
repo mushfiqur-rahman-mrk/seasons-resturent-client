@@ -16,6 +16,7 @@ const Banner = () => {
           />
           <div className="absolute inset-0 bg-black opacity-60"></div>
         </div>
+       
         <div className='absolute bottom-0 mb-[-30px] '>
           <img src={bannersvg} alt="" />
         </div>

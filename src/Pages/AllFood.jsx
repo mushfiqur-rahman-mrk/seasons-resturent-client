@@ -20,7 +20,7 @@ const AllFood = () => {
   console.log(pageNumber);
   const pages=[...Array(pageNumber).keys()]
   console.log(pages);
-
+  console.log('check check',currentPage);
 
   useEffect(()=>{
     // fetch('https://seasons-server.vercel.app/api/v1/all-foods',{
@@ -106,7 +106,7 @@ const handleNextbtn=()=>{
       <div className="flex justify-center my-20 gap-5 items-center">
         <h1 onClick={handlePrevbtn} className="px-2 cursor-pointer hover:translate-y-2 duration-75"><BsArrowLeft className="text-red-500 text-xl"></BsArrowLeft></h1>
         {
-          pages.map(page=><button onClick={()=>setCurrentPage(page)} className={currentPage === page ? 'bg-red-500 px-3 py-1 rounded-full text-white' : 'px-3 py-2 mx-1 rounded-full text-red-500'} key={page}>{page}</button>)
+          pages?.map(page=><button onClick={()=>setCurrentPage(page)} className={currentPage === page ? 'bg-red-500 px-3 py-1 rounded-full text-white' : 'px-3 py-2 mx-1 rounded-full text-red-500'} key={page}>{page}</button>)
         }
         <h1 onClick={handleNextbtn} className="px-2 cursor-pointer hover:translate-x-2 duration-75"><BsArrowRight className="text-red-500 text-xl"></BsArrowRight></h1>
       </div>

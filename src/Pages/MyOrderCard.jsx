@@ -55,6 +55,7 @@ const MyOrderCard = ({orderItem,refetch}) => {
             {/* <p className='text-sm text-gray-500'>Available: {stock}</p> */}
               <p className="text-black font-semibold">$ {price}</p>
               <p className="text-black font-semibold">Order item: {order}</p>
+              <p className="text-black font-semibold">Order id: {_id}</p>
             </div>
            
           </div>

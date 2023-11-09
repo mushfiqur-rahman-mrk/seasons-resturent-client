@@ -7,6 +7,8 @@ import axios from "axios";
 import GetUser from "../utils/GetUser";
 import useAuth from "../Hooks/useAuth";
 import { useQuery } from "@tanstack/react-query";
+import { Link } from "react-router-dom";
+import Cardbtn from "../Components/Ui/CardBtn/Cardbtn";
 
 const MyOrder = () => {
   // const user = GetUser()
@@ -46,11 +48,35 @@ console.log(data);
     <div className="min-h-screen">
        
       <Container>
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-5">
-          {
+        <div className="w-full">
+          {/* {
             data?.length > 0 ? data?.map(orderItem=><MyOrderCard key={orderItem._id} refetch={refetch} orderItem={orderItem}></MyOrderCard>)
             :
-            <p className="text-2xl font-bold text-center mt-10">You did't order any food yer</p>
+            <div className="w-full">
+
+                <p className="text-2xl font-bold text-center mt-10">You did't order any food yet</p>
+
+            </div>
+              
+          } */}
+
+          {
+            data?.length > 0 ? <div className="grid grid-cols-1 lg:grid-cols-3 gap-5">
+              {
+                data?.map(orderItem=><MyOrderCard key={orderItem._id} refetch={refetch} orderItem={orderItem}></MyOrderCard>)
+              }
+       
+            </div>
+            :
+            <div className="w-full flex flex-col justify-center  items-center gap-5">
+
+                <p className="text-2xl font-bold text-center mt-10">You did't order any food yet</p>
+                <Link to={'/all-food'}>
+                      <Cardbtn className="">Order food</Cardbtn>
+                </Link>
+
+            </div>
+              
           }
         </div>
       </Container>

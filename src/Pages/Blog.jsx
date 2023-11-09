@@ -4,6 +4,7 @@ import Container from "../Components/Ui/Container";
 const Blog = () => {
   return (
     <>
+
       <Container>
         <div className="gird grid-cols-1 my-20">
           <div className="p-5 border my-10">
